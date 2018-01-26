@@ -215,7 +215,7 @@
 .contenidoRelacionado {
     background-color: #f0f0f0;
     padding: 0.4em 0;
-    margin: 0 -100vw;
+    margin: 0 -100vw 1.25em;
     padding: 0 100vw;
     &__wrapper {
         display: flex;
@@ -253,5 +253,15 @@
         &::before {
             content: 'Siguiente:';
         }
+    }
+}
+
+.comentarios {
+    margin: 0 auto;
+    max-width: $anchoMaximo;
+    .dsq-brlink,
+    noscript {
+        display: block;
+        text-align: center;
     }
 }
