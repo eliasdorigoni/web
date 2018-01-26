@@ -8,26 +8,18 @@
         line-height: 0.9;
         margin: 0 auto;
         max-width: $anchoMaximo;
-        span {
-            display: block;
-            font-weight: bold;
-        }
     }
-    span {
+    &__puesto {
         display: block;
-        font-size: #{(17/16)}rem;
+        font-size: 1rem;
         font-weight: normal;
-        a {
-            text-decoration: none;
-            &:hover {
-                text-decoration: underline;
-            }
+        strong {
+            font-style: italic;
+            font-weight: 600;
         }
-    }
-    a {
-        color: inherit;
     }
     &__enlaceHome {
+        color: #fff;
         display: inline-block;
         font-size: 2rem;
         font-weight: 600;
