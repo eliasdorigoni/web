@@ -1,0 +1,78 @@
+.contenido {
+    color: $colorTextos;
+    font-size: #{(18/16)}rem;
+    font-weight: 400;
+    margin: 0 auto 2em;
+    line-height: 1.4;
+    padding: 0 0.8em;
+    &__titulo {
+        margin: 0 0 0.8rem;
+    }
+    .button {
+        background: $colorDestacado;
+        border: 2px solid $colorDestacado;
+        color: #fff;
+        display: inline-block;
+        padding: 0.4em 0.6em;
+        text-decoration: none;
+        text-indent: 0;
+        text-transform: uppercase;
+        &:hover {
+            background: darken($colorDestacado, 15%);
+            border-color: darken($colorDestacado, 15%);
+            color: #fff;
+        }
+        &:active {
+            background: $colorDestacado;
+            border-color: darken($colorDestacado, 25%);
+        }
+    }
+}
+
+.pagination {
+    padding: 0;
+    text-align: center;
+    li {
+        list-style: none;
+        display: inline-block;
+        margin: 0.2em 0.2em;
+        &.active a {
+            background: $colorDestacado;
+            color: #fff;
+            font-weight: 700;
+        }
+    }
+    a {
+        background: #fff;
+        display: block;
+        color: $colorItemMenu;
+        font-weight: 500;
+        padding: 0.1em 0.5em;
+        text-decoration: none;
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+.ultimasEntradas {
+    margin: 0 auto 2em;
+    max-width: $anchoMaximo;
+}
+
+.bio {
+    margin: 0 auto 2em;
+    max-width: $anchoMaximo;
+    max-width: $anchoMaximo;
+}
+
+.contenedorBotonVerMas {
+    margin: 0 auto 2em;
+    max-width: $anchoMaximo;
+    text-align: right;
+}
+
+.blog {
+    margin: 0 auto;
+    max-width: $anchoMaximo;
+}

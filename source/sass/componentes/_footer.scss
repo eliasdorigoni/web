@@ -1,0 +1,21 @@
+.footer {
+    border-top: 3px solid $colorDestacado;
+    line-height: 1.5;
+    margin: 0 auto 2em;
+    max-width: $anchoMaximo;
+    padding: 1em 1em 0;
+    text-align: right;
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    p {
+        margin: 0 0 0.5em;
+    }
+    svg {
+        display: inline-block;
+        height: 1.4em;
+        vertical-align: middle;
+        width: 1.4em;
+    }
+}

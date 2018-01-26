@@ -1,0 +1,25 @@
+baseURL: "http://eliasdorigoni.com/"
+languageCode: "es"
+title: "Elías Dorigoni"
+sectionPagesMenu: "main"
+Paginate: 10
+PaginatePath: "pagina"
+disqusShortname: "eliasdorigoni.disqus.com"
+hrefTargetBlank: true
+
+blackfriday:
+  extensionsmask: ["autolink"]
+
+menu:
+  main:
+    - name: "Blog"
+      weight: 1
+      identifier: "blog"
+      url: "/blog/"
+
+params:
+    author: "Elias Dorigoni"
+
+taxonomies:
+    etiqueta: "etiquetas"
+    categoria: "categorias"

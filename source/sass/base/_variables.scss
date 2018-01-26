@@ -1,0 +1,33 @@
+$small: 0;
+$medium: 40em;
+$large: 64em;
+$xlarge: 75em;
+$xxlarge: 90em;
+
+$anchoMaximo: 50rem;
+$anchoMaximoExpandido: 56rem;
+
+$colorFondoGlobal: #f8f8f8;
+
+$colorPrincipal: #222;
+$colorDestacado: #f54337;
+
+$colorTextos: #333;
+$colorTitulos: #333;
+$colorEnlaces: $colorDestacado;
+$colorMetadatos: darken($colorFondoGlobal, 35%);
+$colorItemMenu: #5F5F5F;
+$colorItemActivo: $colorDestacado;
+
+// http://colorzilla.com/gradient-editor/#f9ed32+0,ee2a7b+75,002aff+100
+@mixin degradadoInstagram {
+    background: #ee2a7b;
+    background: linear-gradient(45deg, #f9ed32 0%, #ee2a7b 75%, #002aff 100%); //sass-lint:disable-line no-duplicate-properties
+}
+
+$stackPrincipal: 'Source Sans Pro', Roboto, Arial, sans-serif;
+$stackMono: 'Source Code Pro', Consolas, Monaco, monospace;
+
+$colorFondoCodigo: #f5f5f5;
+$colorFondoCodigoEnLinea: darken(#f0f0f0, 3%);
+$colorFondoCodigoSeleccionado: darken(#f0f0f0, 10%);
