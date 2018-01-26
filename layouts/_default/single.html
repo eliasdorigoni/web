@@ -37,12 +37,13 @@
 </article>
 <section class="contenidoRelacionado">
     <div class="contenidoRelacionado__wrapper">
-        {{ if .Next }}
-        <a class="anterior" href="{{ .Next.Permalink }}">{{ .Next.Title }}</a>
+        {{ if .PrevInSection }}
+        <a class="anterior" href="{{ .PrevInSection.RelPermalink }}">{{ .PrevInSection.Title }}</a>
         {{ end }}
 
-        {{ if .Prev }}
-        <a class="siguiente" href="{{ .Prev.Permalink }}">{{ .Prev.Title }}</a>
+
+        {{ if .NextInSection }}
+        <a class="siguiente" href="{{ .NextInSection.RelPermalink }}">{{ .NextInSection.Title }}</a>
         {{ end }}
     </div>
 </section>
