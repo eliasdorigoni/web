@@ -9,27 +9,8 @@ var gulp         = require('gulp'),
 
 requireDir('./gulp/tasks');
 
-gulp.task('default', function() {
-    var secuencia = [
-        'js',
-        'sass',
-        'comprimir-imagenes',
-        'svg',
-        'includes-js',
-        'favicon',
-    ]
+gulp.task('default', ['js', 'sass', 'comprimir-imagenes', 'svg', 'favicon'], function() {
     if (argv.watch) {
-        runSequence(secuencia, 'watch')
-    } else {
-        runSequence(secuencia)
+        runSequence('watch')
     }
-})
-
-gulp.task('init', function() {
-    runSequence('default');
-})
-
-gulp.task('build', function() {
-    CONFIG.esBuild(true)
-    runSequence('clean-static', 'default')
 })
