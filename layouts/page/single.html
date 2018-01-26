@@ -1,15 +1,9 @@
 {{ define "header" }}{{ partial "header.html" . }}{{ end }}
 {{ define "main" }}
-<section class="contenedor">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    <script src="{{ "assets/js/app.min.js" | absURL }}" async></script>
-    <main id="contenido" class="contenido" role="main">
-        <article class="post">
-            <h1 class="post__titulo">{{ .Title }}</h1>
-            <div>
-                {{ .Content }}
-            </div>
-        </article>
-    </main>
-</section>
+<article class="post single">
+    <h1 class="post__titulo">{{ .Title }}</h1>
+    <div class="post__contenido">
+        {{ .Content }}
+    </div>
+</article>
 {{ end }}

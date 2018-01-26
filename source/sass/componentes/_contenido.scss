@@ -4,7 +4,6 @@
     font-weight: 400;
     margin: 0 auto 2em;
     line-height: 1.4;
-    padding: 0 0.8em;
     &__titulo {
         margin: 0 0 0.8rem;
     }
@@ -55,14 +54,8 @@
     }
 }
 
-.ultimasEntradas {
+.contenedor {
     margin: 0 auto 2em;
-    max-width: $anchoMaximo;
-}
-
-.bio {
-    margin: 0 auto 2em;
-    max-width: $anchoMaximo;
     max-width: $anchoMaximo;
 }
 

@@ -1,5 +1,6 @@
 .post {
     margin-bottom: 2em;
+    padding: 0 0.8em;
     &__titulo {
         color: $colorTextos;
         font-size: #{(28/16)}rem;
@@ -132,6 +133,7 @@
     &.post--extracto {
         border-bottom: 1px solid darken($colorFondoGlobal, 4%);
         margin-bottom: 0;
+        padding: 0;
         > a {
             display: block;
             padding: 0.8em 0.8em 0.8em 0;
@@ -214,9 +216,8 @@
 
 .contenidoRelacionado {
     background-color: #f0f0f0;
+    margin: 0 0 1.25em;
     padding: 0.4em 0;
-    margin: 0 -100vw 1.25em;
-    padding: 0 100vw;
     &__wrapper {
         display: flex;
         justify-content: space-between;

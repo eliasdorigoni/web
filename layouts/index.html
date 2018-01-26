@@ -1,5 +1,5 @@
 {{ define "main" }}
-    <section class="ultimasEntradas">
+    <section class="contenedor ultimasEntradas">
         {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
         {{ $mainSections := .Site.Params.mainSections | default (slice "blog") }}
 
@@ -18,7 +18,7 @@
         {{ end }}
     </section>
 
-    <section class="bio">
+    <section class="contenedor bio">
         {{ .Content }}
     </section>
 {{ end }}
