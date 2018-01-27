@@ -1,27 +1,29 @@
 ---
-title: "Usar dominios personalizados en XAMPP (a.k.a. VirtualHost)"
-date: 2017-08-15T09:55:51-03:00
+title: "Usar dominios personalizados en XAMPP (VirtualHost)"
+date: 2018-01-26T20:56:20-03:00
+draft: true
+categorias:
+    - "apache"
+etiquetas: ["uno", "dos", "tres"]
 ---
 
-Al desarrollar más de un proyecto en XAMPP, utilizar **http://localhost/mi-proyecto** no siempre es la mejor opción: no se puede enlazar a la raíz del sitio con "/" y es muy probable que la estructura no refleje la del servidor de producción. 
+Al trabajar en varios proyectos diferentes en XAMPP tarde o temprano se vuelve necesario organizarlos en carpetas, pero usar `http://localhost/mi-proyecto/` como la URL del proyecto hace que sea difícil utilizar URLs relativas, y es muy probable que no refleje la estructura de URLs del servidor de producción. 
 
-En este post vamos a redireccionar el dominio *mi-proyecto.local/* a localhost y servir el contenido de localhost/mi-proyecto/ mediante virtual hosts de Apache.
-
-<!--more-->
+En este post vamos a utilizar el dominio `http://mi-proyecto.local/` para ver el contenido `http://localhost/mi-proyecto/` mediante la directiva VirtualHosts de Apache.
 
 > Algunas cosas a tener en cuenta:
 
 > * esta guía fue escrita usando XAMPP 5.6.30 instalado en Windows 10,
 
-> * asegurate de tener copias de seguridad de todos los archivos que modifiques,
-
-> * no es necesario que el dominio sea .local, puede ser .dev, .test, etcétera,
-
-> * en algunos navegadores puede ser necesario que la ruta termine con "/" (**mi-proyecto.local/**)
+> * como siempre, asegurate de tener copias de seguridad de todo lo que modifiques,
 
 ## Paso 1: redireccionar dominios a *localhost*
 
-Para indicar a Windows que la ruta *mi-proyecto.local/* es esta PC hay que editar el archivo `{RUTA-DE-WINDOWS}/System32/drivers/etc/hosts`, agregando una nueva fila por cada dominio a redireccionar:
+Todos los dominios apuntan a una IP.
+
+[CONTINUAR]
+
+Para indicar a Windows que la ruta `http://mi-proyecto.local/` es esta PC hay que editar el archivo `<RUTA-DE-WINDOWS>/System32/drivers/etc/hosts`, agregando una nueva fila por cada dominio a redireccionar:
 
 ```hosts
 # Copyright (c) 1993-2009 Microsoft Corp.
@@ -56,6 +58,7 @@ Se pueden agregar más lineas para redireccionar otros dominios:
 ```
 
 
+> * por lo menos en Google Chrome es necesario que la ruta termine con "/" (**mi-proyecto.local/**)
 
 ## Paso 2: Editar httpd-vhosts.conf
 
