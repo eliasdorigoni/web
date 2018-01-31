@@ -256,6 +256,7 @@ AddDefaultCharset utf-8
                      .mjs \
                      .rdf \
                      .rss \
+                     .svg \
                      .topojson \
                      .vtt \
                      .webapp \
