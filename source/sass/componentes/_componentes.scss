@@ -17,7 +17,10 @@ a {
     color: $colorEnlaces;
     font-weight: 600;
     &:hover {
-        color: darken($colorEnlaces, 15%);
+        color: darken($colorEnlaces, 20%);
+    }
+    &:active {
+        color: darken($colorEnlaces, 35%);
     }
 }
 

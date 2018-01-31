@@ -2,32 +2,34 @@
 <html lang="{{ $.Site.LanguageCode | default "en" }}" class="no-js">
     <head>
         <meta charset="utf-8">
-         {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
+         {{- /* NOTE: the Site's title, and if there is a page title, that is set too */ -}}
         <title>{{ block "title" . }}{{ .Site.Title }}{{ with .Title }} | {{ . }}{{ end }}{{ end }}</title>
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        {{ .Hugo.Generator }}
-        {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
-        {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
-        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-        {{ else }}
-        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-        {{ end }}
-        {{ if .RSSLink }}
+        <META NAME="ROBOTS" CONTENT="
+        {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") -}}
+        INDEX, FOLLOW
+        {{- else -}}
+        NOINDEX, NOFOLLOW
+        {{- end -}}
+        ">
+
+        {{- if .RSSLink -}}
         <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
         <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-        {{ end }}
-        {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
+        {{- end -}}
+
         {{- template "_internal/opengraph.html" . -}}
         {{- template "_internal/google_news.html" . -}}
         {{- template "_internal/schema.html" . -}}
         {{- template "_internal/twitter_cards.html" . -}}
-        {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
-            {{ template "_internal/google_analytics_async.html" . }}
-        {{ end }}
-        <link href="/assets/css/app.min.css" rel='stylesheet' type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Source+Sans+Pro:400,600,700" rel="stylesheet">
+
+        {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") -}}
+            {{- template "_internal/google_analytics_async.html" . -}}
+        {{- end -}}
+        <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Source+Sans+Pro:400,600,700" rel="stylesheet">
     </head>
 
     <body>
@@ -36,6 +38,6 @@
             {{ block "main" . }}{{ end }}
         </main>
         {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
-        <script src="/assets/js/app.min.js" async></script>
+        <script type="text/javascript" src="/assets/js/app.min.js" async></script>
     </body>
 </html>

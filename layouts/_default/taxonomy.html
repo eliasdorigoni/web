@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ range .Data.Pages }}
-    {{ partial "extracto.html" . }}
+    {{ partial "loop-extracto.html" . }}
   {{ end }}
   {{ template "_internal/pagination.html" . }}
 {{ end }}

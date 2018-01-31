@@ -1,6 +1,0 @@
-<article class="post post--extracto">
-    <a href="{{ .URL }}" class="post__enlaceVerPost" title="Leer el artículo: {{ .Title }}">
-        <p class="post__meta"><time>{{ .Date.Day }} de {{ index $.Site.Data.meses (printf "%d" .Date.Month) }}, {{ .Date.Year }}</time></p>
-        <h2 class="post__titulo">{{ .Title }}</h2>
-    </a>
-</article>

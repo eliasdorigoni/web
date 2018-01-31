@@ -28,32 +28,6 @@
     }
 }
 
-.pagination {
-    padding: 0;
-    text-align: center;
-    li {
-        list-style: none;
-        display: inline-block;
-        margin: 0.2em 0.2em;
-        &.active a {
-            background: $colorDestacado;
-            color: #fff;
-            font-weight: 700;
-        }
-    }
-    a {
-        background: #fff;
-        display: block;
-        color: $colorItemMenu;
-        font-weight: 500;
-        padding: 0.1em 0.5em;
-        text-decoration: none;
-        &:hover {
-            color: #000;
-        }
-    }
-}
-
 .contenedor {
     margin: 0 auto 2em;
     max-width: $anchoMaximo;

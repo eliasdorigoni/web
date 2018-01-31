@@ -1,10 +1,10 @@
 ---
 title: "Agregar clases personalizadas a widgets en WordPress"
 date: 2018-01-23T14:55:36-03:00
+categorias: ["WordPress"]
+etiquetas: ["widget"]
 draft: true
 ---
-
-<!--more-->
 
 Dependiendo de los requerimientos de un proyecto a veces es necesario identificar algunos widgets dentro un sidebar. Con esta técnica se pueden agregar clases CSS a todos los widgets de un sidebar, modificando la clase definida en `'before_widget'` al usar `register_sidebar()`.
 
@@ -12,7 +12,11 @@ Dependiendo de los requerimientos de un proyecto a veces es necesario identifica
 function agregarClaseIncrementalEnWidget($params = array()) {
     $sidebarEsperado = 'sidebar-1';
 
-    if (is_admin() || !isset($params[0]['id']) || $params[0]['id'] !== $sidebarEsperado)) {
+    if (is_admin()) {
+        return $params;
+    }
+
+    if (empty($params[0]['id']) || $params[0]['id'] !== $sidebarEsperado)) {
         return $params;
     }
 
@@ -23,6 +27,7 @@ function agregarClaseIncrementalEnWidget($params = array()) {
         'class="widget-' . $i . ' ',
         $params[0]['before_widget']
     );
+
     return $params;
 }
 add_filter('dynamic_sidebar_params', 'agregarClaseIncrementalEnWidget');

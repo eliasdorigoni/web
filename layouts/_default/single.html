@@ -2,34 +2,36 @@
 {{ define "main" }}
 <article class="post single">
     <p class="post__meta">Publicado el <time>{{ .Date.Day }} de {{ index $.Site.Data.meses (printf "%d" .Date.Month) }}, {{ .Date.Year }}</time> 
-    {{ if .Params.categorias }}
-        en {{ range $index, $category := .Params.categorias }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categorias/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . | humanize }}</a>{{ end }}.
-    {{ end }}
+        {{- if .Params.categorias -}}
+            en {{ range $index, $category := .Params.categorias }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categorias/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . }}</a>{{ end }}.
+        {{- end -}}
 
-        {{ if and (ge .Lastmod.Unix 1) (ne .Date.Unix .Lastmod.Unix) }}
+        {{- if and (ge .Lastmod.Unix 1) (ne .Date.Unix .Lastmod.Unix) -}}
             <br>Última actualización: <time>{{ .Lastmod.Day }} de {{ index $.Site.Data.meses (printf "%d" .Lastmod.Month) }}, {{ .Lastmod.Year }}</time>
-        {{ end }}
+        {{- end -}}
     </p>
 
-    <h1 class="post__titulo">{{ .Title }}</h1>
+    <h1 class="post__titulo">
+        {{- .Title -}}
+    </h1>
 
-    {{ if .Params.tableOfContents }}
-    {{ with .TableOfContents }}
-    <aside class="tablaDeContenidos"> 
-        <h2 class="tablaDeContenidos__titulo">Tabla de contenidos</h2>
-        {{ . }}
-    </aside>
-    {{ end }}
-    {{ end }}
+    {{- if .Params.tableOfContents -}}
+        {{ with .TableOfContents }}
+        <aside class="tablaDeContenidos"> 
+            <h2 class="tablaDeContenidos__titulo">Tabla de contenidos</h2>
+            {{ . }}
+        </aside>
+        {{ end }}
+    {{- end -}}
 
     <div class="post__contenido">
-        {{ .Content }}
+        {{- .Content -}}
     </div>
 
     {{ if .Params.etiquetas }}
     <p class="post__taxonomias post__taxonomias--etiquetas">
         {{ range $index, $tag := .Params.etiquetas }}
-            <a href="{{ "etiquetas/" | absLangURL }}{{ $tag | urlize | lower }}" rel="tag">{{ . | humanize }}</a>
+            <a href="{{ "etiquetas/" | absLangURL }}{{ $tag | urlize | lower }}" rel="tag">{{ . }}</a>
         {{ end }}
     </p>
     {{ end }}
