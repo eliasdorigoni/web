@@ -1,7 +1,6 @@
 var gulp         = require('gulp'),
     argv         = require('yargs').argv,
     autoprefixer = require('gulp-autoprefixer'),
-    concat       = require('gulp-concat'),
     del          = require('del'),
     gulpIgnore   = require('gulp-ignore'),
     gulpif       = require('gulp-if'),
@@ -86,18 +85,13 @@ gulp.task('sass', ['sasslint'], function(cb) {
 })
 
 gulp.task('comprimir-scripts', function() {
-    var src = [
-        './source/js/extend-app/*',
-        './source/js/app.js',
-    ]
-
-    return gulp.src(src)
+    return gulp.src('./source/js/**/*')
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.init()))
-        .pipe(concat('app.min.js'))
         .pipe(uglify())
         .on('error', function(err) {
             console.error(err.toString())
         })
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.write()))
         .pipe(gulp.dest(CONFIG.dir.assets + 'js/'))
         .pipe(gulpif(CONFIG.noEsBuild, livereload()))
@@ -118,20 +112,26 @@ gulp.task('eliminar-static', function() {
 gulp.task('watch', function() {
     livereload.listen()
     gulp.watch('./source/img/**/*', ['comprimir-imagenes'])
-    gulp.watch('./source/js/*.js', ['js'])
-    gulp.watch([
-        './source/js/includes/**/*',
-        './source/js/backend/**/*',
-        './source/js/admin/**/*',
-    ], ['includes-js'])
+    gulp.watch('./source/js/**/*', ['comprimir-scripts'])
     gulp.watch('./source/sass/**/*.scss', ['sass'])
-    gulp.watch('./source/svg/*.svg', ['svg'])
+    gulp.watch('./source/svg/*.svg', ['comprimir-svg'])
     gulp.watch('./source/svg/sprite/*.svg', ['svg-sprite'])
 })
-
 
 gulp.task('default', ['comprimir-scripts', 'sass', 'comprimir-imagenes', 'comprimir-svg', 'favicon', ], function() {
     if (argv.watch) {
         runSequence('watch')
     }
+})
+
+gulp.task('build', ['eliminar-static'], function() {
+    CONFIG.esBuild = true
+    CONFIG.noEsBuild = false
+    runSequence([
+        'comprimir-scripts',
+        'sass',
+        'comprimir-imagenes',
+        'comprimir-svg',
+        'favicon',
+    ])
 })
