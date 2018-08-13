@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="wrapper-contenido">
+    {{ partial "navegacion" . }}
+
+    {{ .Title }}
+    
+    <p>SINGLE DE PORTFOLIO</p>
+
+    {{ with .GetMatch "thumbnail" }}
+        {{ . }}
+    {{ end }}
+
+
+</section>
+{{ end }}

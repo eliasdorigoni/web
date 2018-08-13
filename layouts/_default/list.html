@@ -1,9 +1,17 @@
 {{ define "main" }}
-    <div class="{{ .Title | urlize }}">
-        <h1>{{ .Title }}</h1>
-        {{ range .Data.Pages }}
-            {{ partial "loop-extracto.html" . }}
+    <section class="wrapper-contenido wrapper-contenido--articulos">
+        
+        {{ partial "navegacion" . }}
+
+        {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
+            {{ range where .Pages "Section" "blog" }}
+                {{ partial "articulo--extracto.html" . }}
+            {{ end }}
+        {{ else }}
+            {{ range where .Pages "Section" "in" (slice "blog" "ideas") }}
+                {{ partial "articulo--extracto.html" . }}
+            {{ end }}
         {{ end }}
-    </div>
+    </section>
     {{ template "_internal/pagination.html" . }}
 {{ end }}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="wrapper-contenido">
+    {{ partial "navegacion" . }}
+
+    <ul>
+    {{ range .Data.Pages }}
+        <li>
+            <a href="{{ .URL }}">{{ .Title }}</a>
+            {{ .GetMatch "thumbnail" }}
+        </li>
+    {{ end }}
+    </ul>
+
+</section>
+{{ end }}

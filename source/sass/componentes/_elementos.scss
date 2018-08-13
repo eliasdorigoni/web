@@ -1,0 +1,86 @@
+html,
+body {
+    background: $colorFondoSitio;
+    box-sizing: border-box;
+    color: $colorTextos;
+    font-family: $stackPrincipal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    @supports(display: grid) {
+        display: grid;
+        grid-template-columns: 25% auto;
+        grid-template-rows: auto auto auto;
+        // Fondo de la columna izquierda.
+        &::before {
+            background: {
+                attachment: scroll;
+                image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 100 100'><path d='M0 0 H 100 L 97 100 H 0 Z' fill='#{$colorDestacado}' /></svg>"); //sass-lint:disable-line quotes
+                // image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 100 100'><path d='M0 0 H 100 L 50 100 H 0 Z' fill='#{$colorDestacado}' /></svg>"); //sass-lint:disable-line quotes
+                position: center right;
+                repeat: no-repeat;
+            }
+
+            background-size: cover;
+            grid-column: 1 / 1;
+            grid-row: 1 / span 3;
+            @media (min-width: $breakpointAnchoGridMovil) and (min-height: $breakpointAltoGridMovil) {
+                content: '';
+            }
+        }
+    }
+}
+
+a {
+    color: $colorDestacado;
+    font-weight: 600;
+    &:hover {
+        color: darken($colorDestacado, 20%);
+    }
+    &:active {
+        color: darken($colorDestacado, 35%);
+    }
+}
+
+h1 {
+    font-size: rem(24);
+}
+
+h2 {
+    font-size: rem(22);
+}
+
+h3 {
+    font-size: rem(20);
+}
+
+h1,
+h2,
+h3 {
+    margin: 1.2em 0 0.6em;
+}
+
+img {
+    max-width: 100%;
+}
+
+strong {
+    color: $colorDestacado;
+    font-weight: 600;
+}
+
+p {
+    margin: 0.2em 0 0.85em;
+}
+
+code {
+    background-color: $colorFondoCodigoEnLinea;
+    display: inline-block;
+    padding: 0 0.2em;
+}

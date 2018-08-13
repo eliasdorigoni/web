@@ -1,0 +1,10 @@
+<nav class="navegacion-principal">
+    <ul>
+        <li class="menu-item {{ if (eq .Section "blog") }}menu-item--actual{{ end }}">
+            <a href="/blog/">Blog</a>
+        </li>
+        <li class="menu-item {{ if (eq .Section "portfolio") }}menu-item--actual{{end}}">
+            <a href="/portfolio/">Portfolio</a>
+        </li>
+    </ul>
+</nav>

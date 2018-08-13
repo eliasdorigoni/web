@@ -1,53 +1,13 @@
-// uso:
-// .target { @include mixin(options); }
-
-
-/// Mixin to prefix a property
-/// @author Hugo Giraudel
-/// @param {String} $property - Property name
-/// @param {*} $value - Property value
-/// @param {List} $prefixes (()) - List of prefixes to print
-@mixin prefix($property, $value, $prefixes: ()) {
-    @each $prefix in $prefixes {
-        #{'-' + $prefix + '-' + $property}: $value;
-    }
-
-    // Output standard non-prefixed declaration
-    #{$property}: $value;
-
-    // .selector {
-    //     @include prefix(transform, rotate(45deg), webkit ms);
-    // }
+@mixin bloque-centrado {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $anchoMaximoContenido;
+    padding-left: rem(15);
+    padding-right: rem(15);
 }
 
-// Los selectores deben ir separados para no cancelarse entre ellos.
-@mixin colorPlaceholder($color) {
-    // sass-lint:disable-block no-vendor-prefixes
-
-    // WebKit, Blink, Edge
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
-
-    // Mozilla Firefox 4 a 18
-    &:-moz-placeholder {
-        color: $color;
-        opacity:  1;
-    }
-
-    // Mozilla Firefox 19+
-    &::-moz-placeholder {
-        color: $color;
-        opacity:  1;
-    }
-
-    // Internet Explorer 10-11
-    &:-ms-input-placeholder {
-        color: $color;
-    }
-
-    // Microsoft Edge
-    &:-ms-input-placeholder {
-        color: $color;
+@mixin breakpoint {
+    @media (min-width: $breakpointAnchoGridMovil) and (min-height: $breakpointAltoGridMovil) {
+        @content;
     }
 }

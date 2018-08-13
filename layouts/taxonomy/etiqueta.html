@@ -1,8 +1,0 @@
-{{ define "main" }}
-    <div class="contenedor">
-        <h1>Artículos etiquetados como "{{ .Title }}":</h1>
-        {{ range .Data.Pages }}
-            {{ partial "loop-extracto.html" . }}
-      {{ end }}
-    </div>
-{{ end }}

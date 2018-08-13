@@ -15,9 +15,10 @@ var gulp         = require('gulp'),
     requireDir   = require('require-dir'),
     runSequence  = require('run-sequence'),
     sass         = require('gulp-sass'),
+    sassLint     = require('gulp-sass-lint'),
     sourcemaps   = require('gulp-sourcemaps'),
     uglify       = require('gulp-uglify'),
-    wait         = require('gulp-wait'),
+    wait         = require('gulp-wait')
 
 var CONFIG = {
     dir: {
@@ -60,7 +61,14 @@ gulp.task('comprimir-imagenes', function() {
         .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
-gulp.task('sass', function(cb) {
+gulp.task('sasslint', function() {
+    return gulp.src('./source/sass/**/*.scss')
+        .pipe(sassLint())
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
+})
+
+gulp.task('sass', ['sasslint'], function(cb) {
     return gulp.src('./source/sass/*.scss')
         .pipe(wait(150))
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.init()))
@@ -77,7 +85,7 @@ gulp.task('sass', function(cb) {
         .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
-gulp.task('js', function() {
+gulp.task('comprimir-scripts', function() {
     var src = [
         './source/js/extend-app/*',
         './source/js/app.js',
@@ -95,7 +103,7 @@ gulp.task('js', function() {
         .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
-gulp.task('svg', function() {
+gulp.task('comprimir-svg', function() {
     return gulp.src('./source/svg/*.svg')
         .pipe(newer(CONFIG.dir.assets + 'svg'))
         .pipe(imagemin())
@@ -103,12 +111,8 @@ gulp.task('svg', function() {
         .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
-gulp.task('clean', function() {
+gulp.task('eliminar-static', function() {
     return del(['./static/'])
-})
-
-gulp.task('forzar-livereload', function() {
-    return livereload.reload()
 })
 
 gulp.task('watch', function() {
@@ -125,7 +129,8 @@ gulp.task('watch', function() {
     gulp.watch('./source/svg/sprite/*.svg', ['svg-sprite'])
 })
 
-gulp.task('default', ['js', 'sass', 'comprimir-imagenes', 'svg', 'favicon'], function() {
+
+gulp.task('default', ['comprimir-scripts', 'sass', 'comprimir-imagenes', 'comprimir-svg', 'favicon', ], function() {
     if (argv.watch) {
         runSequence('watch')
     }

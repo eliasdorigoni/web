@@ -1,56 +1,51 @@
-{{ define "header" }}{{ partial "header.html" . }}{{ end }}
 {{ define "main" }}
-<article class="post single">
-    <p class="post__meta">Publicado el <time>{{ .Date.Day }} de {{ index $.Site.Data.meses (printf "%d" .Date.Month) }}, {{ .Date.Year }}</time> 
-        {{- if .Params.categorias -}}
-            en {{ range $index, $category := .Params.categorias }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "categorias/" | absLangURL }}{{ $category | urlize | lower }}" rel="category">{{ . }}</a>{{ end }}.
+
+<section class="wrapper-contenido">
+
+    {{ partial "navegacion" . }}
+
+    <article class="articulo articulo--single">
+        <header>
+            <h1 class="articulo__titulo">{{- .Title -}}</h1>
+            <p class="articulo__fecha-publicacion">
+                <time datetime="{{ .PublishDate.Format "2006-01-02" }}" title="Fecha de publicación: {{ .PublishDate.Day }} de {{ index $.Site.Data.meses (printf "%d" .PublishDate.Month) }} del {{ .PublishDate.Year }}">Publicado el {{ .PublishDate.Day }} de {{ index $.Site.Data.meses (printf "%d" .PublishDate.Month) }} del {{ .PublishDate.Year }}</time>
+            </p>
+        </header>
+
+        {{- if .Params.tableOfContents -}}
+            {{ with .TableOfContents }}
+            <aside class="tabla-de-contenidos"> 
+                <h2 class="tabla-de-contenidos__titulo">Tabla de contenidos</h2>
+                {{ . }}
+            </aside>
+            {{ end }}
         {{- end -}}
 
-        {{- if and (ge .Lastmod.Unix 1) (ne .Date.Unix .Lastmod.Unix) -}}
-            <br>Última actualización: <time>{{ .Lastmod.Day }} de {{ index $.Site.Data.meses (printf "%d" .Lastmod.Month) }}, {{ .Lastmod.Year }}</time>
-        {{- end -}}
-    </p>
+        <div class="articulo__contenido">
+            {{- .Content -}}
+        </div>
 
-    <h1 class="post__titulo">
-        {{- .Title -}}
-    </h1>
+        <div class="articulo__taxonomias">
+            {{ with .Params.etiquetas }}
+            <p>Etiquetas: {{ range $index, $term := . -}}
+                    {{- if $index }}, {{ end -}}
+                    <a href="{{ "/etiquetas/" | relLangURL }}{{ $term | urlize }}">{{ $term }}</a>
+                    {{- end -}}
+                .</p>
+            {{ end }}
 
-    {{- if .Params.tableOfContents -}}
-        {{ with .TableOfContents }}
-        <aside class="tablaDeContenidos"> 
-            <h2 class="tablaDeContenidos__titulo">Tabla de contenidos</h2>
-            {{ . }}
-        </aside>
-        {{ end }}
-    {{- end -}}
+            {{ with .Params.categorias }}
+            <p>Categorías: {{ range $index, $term := . -}}
+                {{- if $index }}, {{ end -}}
+                <a href="{{ "/categorias/" | relLangURL }}{{ $term | urlize }}">{{ $term }}</a>
+                {{- end -}}
+                .</p>
+            {{ end }}
+        </div>
 
-    <div class="post__contenido">
-        {{- .Content -}}
-    </div>
-
-    {{ if .Params.etiquetas }}
-    <p class="post__taxonomias post__taxonomias--etiquetas">
-        {{ range $index, $tag := .Params.etiquetas }}
-            <a href="{{ "etiquetas/" | absLangURL }}{{ $tag | urlize | lower }}" rel="tag">{{ . }}</a>
-        {{ end }}
-    </p>
-    {{ end }}
-
-</article>
-<section class="contenidoRelacionado">
-    <div class="contenidoRelacionado__wrapper">
-        {{ if .PrevInSection }}
-        <a class="anterior" href="{{ .PrevInSection.RelPermalink }}">{{ .PrevInSection.Title }}</a>
-        {{ end }}
-
-
-        {{ if .NextInSection }}
-        <a class="siguiente" href="{{ .NextInSection.RelPermalink }}">{{ .NextInSection.Title }}</a>
-        {{ end }}
-    </div>
+    </article>
+    
+    {{ partial "disqus.html" . }}
+    
 </section>
-
-{{ partial "disqus.html" . }}
-
 {{ end }}
-

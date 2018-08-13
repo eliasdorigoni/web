@@ -1,0 +1,203 @@
+.articulo {
+    $padre: &;
+    &--extracto {
+        margin: 0 0 2.75em;
+        #{$padre}__titulo {
+            margin: 0;
+            text-align: left;
+        }
+        #{$padre}__fecha-publicacion {
+            margin: 0;
+            text-align: left;
+        }
+        #{$padre}__taxonomias {
+            text-align: right;
+        }
+    }
+    header {
+        margin-bottom: 2em;
+    }
+    &__titulo {
+        color: $colorTextos;
+        font-size: rem(24);
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0 0 0.35em;
+        text-align: center;
+        a {
+            font-weight: inherit;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__fecha-publicacion {
+        color: $colorMetadatos;
+        font-size: rem(15);
+        font-weight: 400;
+        margin: 0 0 0.35em;
+        text-align: center;
+    }
+    &__descripcion {
+        font-size: rem(15);
+        opacity: 0.85;
+    }
+    &__taxonomias {
+        color: $colorMetadatos;
+        font-size: rem(14);
+        margin: 0.5em 0 0.25em;
+        span {
+            line-height: 1.7;
+            margin: 0;
+        }
+    }
+}
+
+.articulo__contenido {
+    margin-bottom: 0.5em;
+    h1,
+    h2,
+    h3 {
+        color: $colorTextos;
+        font-weight: 600;
+        line-height: 1.25;
+        margin-bottom: 0.5em;
+        margin-top: 1.6em;
+        position: relative;
+    }
+    h1 {
+        font-weight: 600;
+    }
+    h2 {
+        font-size: rem(23);
+        margin-bottom: 1em;
+    }
+    h3 {
+        font-size: rem(20);
+        font-weight: 600;
+    }
+    a[target='_blank']::after {//sass-lint:disable-line force-pseudo-nesting,force-attribute-nesting
+        background: transparent url('../svg/enlace-externo.svg') scroll no-repeat center center;//sass-lint:disable-line quotes
+        background-size: cover;
+        content: '';
+        display: inline-block;
+        height: 1em;
+        margin-left: 0.25em;
+        width: 1em;
+    }
+    ul,
+    ol {
+        padding-left: 1.25rem;
+        text-align: left;
+        li {
+            margin-bottom: 0.5em;
+            > ul,
+            > ol {
+                margin-top: 0.5em;
+            }
+        }
+        ul,
+        ol {
+            padding-left: 1.5rem;
+        }
+    }
+    p {
+        text-indent: 0.5em;
+        .button,
+        img {
+            margin-left: -0.5em;
+        }
+        > code {
+            text-indent: 0;
+        }
+    }
+    pre {
+        font-size: rem(15);
+        margin-bottom: 2em;
+        margin-top: 2em;
+    }
+    :not(pre) > code {
+        display: inline;
+        font-size: rem(15);
+        font-weight: normal;
+        padding: 0;
+    }
+    img {
+        text-indent: 0;
+    }
+    blockquote {
+        background-color: rgba(#000, 0.1);
+        border-left: rem(8) solid rgba(#000, 0.1);
+        margin-bottom: 1.2em;
+        padding: 0.5em 0.75em;
+        position: relative;
+        code {
+            background-color: rgba(#000, 0.15);
+        }
+        p {
+            line-height: 1.35;
+            text-indent: 0;
+            &:last-child {
+                margin: 0;
+            }
+        }
+        ul {
+            margin: 0.3em 0 0.5em 0;
+            padding-left: 1.35em;
+            li {
+                margin-bottom: 0.1em;
+            }
+        }
+        a {
+            color: #DF554C;
+        }
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0.2em;
+    }
+    td {
+        border: 1px solid #999;
+        padding: 0.2em 0.3em;
+    }
+}
+
+.tabla-de-contenidos {
+    background: #e7e7e7;
+    padding: 0.3em 0.6em 1.2em;
+    @media (min-width: $large) {
+        float: right;
+        margin: 0 0 0.6em 1.2em;
+        max-width: 20em;
+    }
+    &__titulo {
+        border-bottom: 2px solid #dfdfdf;
+        margin: 0 0 0.4rem;
+        padding-bottom: 0.2em;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        ul {
+            padding-left: 0.8em;
+        }
+    }
+    a {
+        display: inline-block;
+        line-height: 1.3;
+        margin-bottom: 0.4em;
+        text-decoration: none;
+    }
+}
+
+.comentarios {
+    margin: 0;
+    padding: 0 0.8rem;
+    .dsq-brlink,
+    noscript {
+        display: block;
+        text-align: center;
+    }
+}
