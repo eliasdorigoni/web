@@ -2,14 +2,18 @@
 <section class="wrapper-contenido">
     {{ partial "navegacion" . }}
 
-    <ul>
-    {{ range .Data.Pages }}
-        <li>
-            <a href="{{ .URL }}">{{ .Title }}</a>
-            {{ .GetMatch "thumbnail" }}
-        </li>
+    {{ if or (eq (getenv "HUGO_ENV") "production") (eq .Site.Params.env "production") (true) }}
+        <p>En construcción...</p>
+    {{ else }}
+        <ul>
+        {{ range .Data.Pages }}
+            <li>
+                <a href="{{ .URL }}">{{ .Title }}</a>
+                {{/* .GetMatch "thumbnail" */}}
+            </li>
+        {{ end }}
+        </ul>
     {{ end }}
-    </ul>
 
 </section>
 {{ end }}

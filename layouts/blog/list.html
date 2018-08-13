@@ -1,0 +1,11 @@
+{{ define "main" }}
+    <section class="wrapper-contenido wrapper-contenido--articulos">
+        {{ partial "navegacion" . }}
+        
+        {{ range where .Pages "Section" "blog" }}
+            {{ partial "articulo--extracto.html" . }}
+        {{ end }}
+
+    </section>
+    {{ template "_internal/pagination.html" . }}
+{{ end }}
