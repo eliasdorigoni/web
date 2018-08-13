@@ -2,5 +2,4 @@
 *.sublime-workspace
 /node_modules
 /public
-/static/assets
-/static/favicon.ico
+/static
