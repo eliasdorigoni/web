@@ -1,7 +1,7 @@
 baseURL: "https://eliasdorigoni.com/"
 languageCode: "es"
 title: "Elías Dorigoni"
-Paginate: 10
+Paginate: "10"
 PaginatePath: "pagina"
 disqusShortname: "eliasdorigoni"
 hrefTargetBlank: true

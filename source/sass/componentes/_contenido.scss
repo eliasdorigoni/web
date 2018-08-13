@@ -147,3 +147,39 @@
         text-decoration: none;
     }
 }
+
+.pagination {
+    text-align: center;
+    .page-item {
+        display: inline-block;
+        font-weight: normal;
+        margin: 0 0.1em;
+        a {
+            background: transparentar(#000, 0.08, $colorFondoSitio);
+            display: block;
+            font-size: rem(18);
+            font-weight: inherit;
+            padding: 0.25em 0.6em;
+            text-decoration: none;
+            transition: background 0.1s, color 0.1s;
+            &:hover {
+                background: $colorDestacado;
+                color: #fff;
+                transition: background 0.1s, color 0.1s;
+            }
+        }
+        &.disabled {
+            opacity: 0.5;
+            a {
+                cursor: default;
+                &:hover {
+                    background: transparentar(#000, 0.08, $colorFondoSitio);
+                    color: inherit;
+                }
+            }
+        }
+        &.active {
+            font-weight: bold;
+        }
+    }
+}

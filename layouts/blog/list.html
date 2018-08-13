@@ -2,7 +2,7 @@
     <section class="wrapper-contenido wrapper-contenido--articulos">
         {{ partial "navegacion" . }}
         
-        {{ range where .Pages "Section" "blog" }}
+        {{ range (.Paginator).Pages }}
             {{ partial "articulo--extracto.html" . }}
         {{ end }}
 
