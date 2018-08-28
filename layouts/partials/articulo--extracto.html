@@ -13,14 +13,18 @@
     {{ end }}
 
     {{ if or (isset .Params "etiquetas") (isset .Params "categorias") }}
+
     <p class="articulo__taxonomias">
         <span>
+
         {{ with .Params.etiquetas }}
             Etiquetas: {{ range $index, $term := . -}}
                 {{- if $index }}, {{ end -}}
                 <a href="{{ "/etiquetas/" | relLangURL }}{{ $term | urlize }}">{{ $term }}</a>
-                {{- end }} / 
+                {{- end }}
         {{ end }}
+
+        {{ if and (.Params.etiquetas) (.Params.categorias) }} / {{ end }}
 
         {{ with .Params.categorias }}
         Categorías: {{ range $index, $term := . -}}
@@ -28,7 +32,7 @@
             <a href="{{ "/categorias/" | relLangURL }}{{ $term | urlize }}">{{ $term }}</a>
             {{- end -}}
         {{ end -}}
-        .</span>
+        </span>
     </p>
     {{ end }}
 </article>
