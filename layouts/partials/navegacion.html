@@ -1,7 +1,7 @@
 <nav class="navegacion-principal">
     <ul>
-        <li class="menu-item {{ if (eq .Section "blog") }}menu-item--actual{{ end }}">
-            <a href="/blog/">Blog</a>
+        <li class="menu-item {{ if .IsHome }}menu-item--actual{{ end }}">
+            <a href="/">Blog</a>
         </li>
         <li class="menu-item {{ if (eq .Section "portfolio") }}menu-item--actual{{end}}">
             <a href="/portfolio/">Portfolio</a>

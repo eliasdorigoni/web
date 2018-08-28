@@ -19,7 +19,7 @@
     }
     &__titulo {
         color: $colorTextos;
-        font-size: rem(24);
+        font-size: rem(28);
         font-weight: 600;
         line-height: 1.2;
         margin: 0 0 0.35em;
@@ -77,8 +77,11 @@
         font-size: rem(20);
         font-weight: 600;
     }
+    a {
+        color: #1779ba;
+    }
     a[target='_blank']::after {//sass-lint:disable-line force-pseudo-nesting,force-attribute-nesting
-        background: transparent url('../svg/enlace-externo.svg') scroll no-repeat center center;//sass-lint:disable-line quotes
+        background: transparent url('../svg/enlace-externo.svg') scroll no-repeat center center;
         background-size: cover;
         content: '';
         display: inline-block;
@@ -148,9 +151,6 @@
             li {
                 margin-bottom: 0.1em;
             }
-        }
-        a {
-            color: #DF554C;
         }
     }
     table {

@@ -1,5 +1,4 @@
 var gulp         = require('gulp'),
-    argv         = require('yargs').argv,
     autoprefixer = require('gulp-autoprefixer'),
     del          = require('del'),
     gulpIgnore   = require('gulp-ignore'),
@@ -9,9 +8,7 @@ var gulp         = require('gulp'),
     livereload   = require('gulp-livereload'),
     favicons     = require('gulp-favicons'),
     newer        = require('gulp-newer'),
-    path         = require('path'),
     rename       = require("gulp-rename"),
-    requireDir   = require('require-dir'),
     runSequence  = require('run-sequence'),
     sass         = require('gulp-sass'),
     sassLint     = require('gulp-sass-lint'),
@@ -24,8 +21,8 @@ var CONFIG = {
         root: './static/',
         assets: './static/assets/',
     },
-    esBuild: typeof argv.build === 'boolean',
-    noEsBuild: typeof argv.build !== 'boolean',
+    esBuild: false,
+    noEsBuild: true,
 }
 
 gulp.task('favicon', function() {
@@ -57,7 +54,6 @@ gulp.task('comprimir-imagenes', function() {
         .pipe(newer(CONFIG.dir.assets + 'img/'))
         .pipe(imagemin())
         .pipe(gulp.dest(CONFIG.dir.assets + 'img/'))
-        .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
 gulp.task('sasslint', function() {
@@ -81,11 +77,10 @@ gulp.task('sass', ['sasslint'], function(cb) {
         .pipe(rename({suffix: '.min'}))
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.write()))
         .pipe(gulp.dest(CONFIG.dir.assets + 'css/'))
-        .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
 gulp.task('comprimir-scripts', function() {
-    return gulp.src('./source/js/**/*')
+    return gulp.src('./source/js/*')
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.init()))
         .pipe(uglify())
         .on('error', function(err) {
@@ -94,7 +89,11 @@ gulp.task('comprimir-scripts', function() {
         .pipe(rename({suffix: '.min'}))
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.write()))
         .pipe(gulp.dest(CONFIG.dir.assets + 'js/'))
-        .pipe(gulpif(CONFIG.noEsBuild, livereload()))
+})
+
+gulp.task('mover-scripts-vendor', function() {
+    return gulp.src('./source/js/vendor/*')
+        .pipe(gulp.dest(CONFIG.dir.assets + 'js/'))
 })
 
 gulp.task('comprimir-svg', function() {
@@ -102,15 +101,32 @@ gulp.task('comprimir-svg', function() {
         .pipe(newer(CONFIG.dir.assets + 'svg'))
         .pipe(imagemin())
         .pipe(gulp.dest(CONFIG.dir.assets + 'svg/'))
-        .pipe(gulpif(CONFIG.noEsBuild, livereload()))
 })
 
 gulp.task('eliminar-static', function() {
     return del(['./static/'])
 })
 
-gulp.task('watch', function() {
-    livereload.listen()
+gulp.task('mover-archivos-raiz', function() {
+    return gulp.src([
+            './source/.htaccess'
+        ])
+        .pipe(gulp.dest(CONFIG.dir.root))
+})
+
+var tareasComunes = [
+    'comprimir-scripts',
+    'mover-scripts-vendor',
+    'sass',
+    'comprimir-imagenes',
+    'comprimir-svg',
+    'favicon',
+    'mover-archivos-raiz',
+]
+
+gulp.task('default', tareasComunes)
+
+gulp.task('watch', tareasComunes, function() {
     gulp.watch('./source/img/**/*', ['comprimir-imagenes'])
     gulp.watch('./source/js/**/*', ['comprimir-scripts'])
     gulp.watch('./source/sass/**/*.scss', ['sass'])
@@ -118,20 +134,8 @@ gulp.task('watch', function() {
     gulp.watch('./source/svg/sprite/*.svg', ['svg-sprite'])
 })
 
-gulp.task('default', ['comprimir-scripts', 'sass', 'comprimir-imagenes', 'comprimir-svg', 'favicon', ], function() {
-    if (argv.watch) {
-        runSequence('watch')
-    }
-})
-
 gulp.task('build', ['eliminar-static'], function() {
     CONFIG.esBuild = true
     CONFIG.noEsBuild = false
-    runSequence([
-        'comprimir-scripts',
-        'sass',
-        'comprimir-imagenes',
-        'comprimir-svg',
-        'favicon',
-    ])
+    runSequence(tareasComunes)
 })

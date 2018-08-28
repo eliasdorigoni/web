@@ -9,11 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {{ .Hugo.Generator }}
         <META NAME="ROBOTS" CONTENT="
-        {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
+        {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") -}}
         INDEX, FOLLOW
-        {{ else }}
+        {{- else -}}
         NOINDEX, NOFOLLOW
-        {{ end }}
+        {{- end -}}
         ">
 
         {{- if .RSSLink -}}
@@ -34,7 +34,6 @@
     </head>
 
     <body>
-
         {{ partial "header" . }}
 
         <main role="main" class="contenido">
@@ -43,8 +42,8 @@
 
         {{ partial "footer" . }}
 
-        {{ if and (eq .Kind "page") (eq .Type "blog") }}
-            <script type="text/javascript" src="/assets/js/app.min.js" async></script>
+        {{ if eq .Type "posts" }}
+            <script type="text/javascript" src="/assets/js/prism.min.js" async></script>
         {{ end }}
         <script type="text/javascript">
             document.documentElement.className = 'js';

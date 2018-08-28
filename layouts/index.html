@@ -2,19 +2,11 @@
 
     <section class="wrapper-contenido wrapper-contenido--articulos">
         {{ partial "navegacion" . }}
-
-        {{ $articulos := where .Pages "Section" "blog" }}
-
-        {{ range first 3 $articulos }}
+        {{ $articulos := where .Pages "Section" "posts" }}
+        {{ range $articulos }}
             {{ partial "articulo--extracto.html" . }}
         {{ end }}
-
-        {{ $cantidad := len $articulos}}
-        {{ if gt $cantidad 3 }}
-            <a class="ir-al-blog" href="/blog/">Más artículos &rarr;</a>
-        {{ end }}
     </section>
-
 
     <section class="wrapper-contenido bio">
     {{ with .Site.GetPage "bio" }}

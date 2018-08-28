@@ -6,6 +6,7 @@
     padding-right: rem(15);
 }
 
+// El breakpoint aplica el estilo de 2 columnas.
 @mixin breakpoint {
     @media (min-width: $breakpointAnchoGridMovil) and (min-height: $breakpointAltoGridMovil) {
         @content;

@@ -2,7 +2,7 @@
     color: $colorTextos;
     font-size: #{(18/16)}rem;
     font-weight: 400;
-    @supports (display: grid) {
+    @supports(display: grid) {
         grid-column: 1 / span 2;
         grid-row: 2 / 2;
         height: none;
@@ -108,31 +108,6 @@
 
 .wrapper-contenido {
     @include bloque-centrado;
-}
-
-.disponibilidad {
-    background: rgba(#fff, 0.14);
-    font-size: rem(16);
-    line-height: 1.4;
-    margin: 0 auto 1em;
-    max-width: $anchoMaximoContenido;
-    padding: rem(8) rem(15);
-    text-align: center;
-    @supports (display: grid) {
-        @include breakpoint {
-            padding-right: 3vh;
-            text-align: left;
-        }
-    }
-    &__status {
-        display: block;
-        font-size: rem(18);
-        font-weight: 600;
-        margin-bottom: 0.25em;
-    }
-    p {
-        margin: 0;
-    }
 }
 
 .ir-al-blog {

@@ -1,5 +1,6 @@
 ---
 headless: true
+mostrar: false
 ---
 
 <span class="disponibilidad__status">Disponible para nuevos proyectos.</span>

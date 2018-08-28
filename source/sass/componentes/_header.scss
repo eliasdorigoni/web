@@ -1,8 +1,10 @@
 .header {
-    background: $colorDestacado;
+    background: $colorFondoSitio url('../svg/fondo-cabecera.svg') scroll no-repeat center center;
     color: #fff;
     margin-bottom: 1em;
-    @supports (display: grid) {
+    position: relative;
+    z-index: $zIndexHeader;
+    @supports(display: grid) {
         grid-column: 1 / span 2;
         grid-row: 1 / 1;
         @include breakpoint {
@@ -20,14 +22,15 @@
         max-width: $anchoMaximoContenido;
         padding: 1rem rem(15);
         a {
+            background: $colorDestacado;
             color: #fff;
             display: inline-block;
             font-size: rem(28);
             font-weight: 600;
-            opacity: 0.85;
             text-decoration: none;
             &:hover {
-                opacity: 1;
+                background: #fff;
+                color: $colorDestacado;
             }
         }
     }
@@ -48,6 +51,20 @@
         z-index: 1;
         &:hover {
             color: $colorDestacado;
+        }
+    }
+}
+
+.fondo-lateral {
+    grid-column: 1 / 1;
+    grid-row: 1 / span 3;
+    height: 100%;
+    visibility: hidden;
+    width: 100%;
+    z-index: $zIndexFondo;
+    @supports(display: grid) {
+        @include breakpoint {
+            visibility: visible;
         }
     }
 }
