@@ -1,54 +1,70 @@
-.cabecera {
-    background: $colorDestacado;
+.header {
+    background: $colorFondoSitio url('../svg/fondo-cabecera.svg') scroll no-repeat center center;
     color: #fff;
     margin-bottom: 1em;
-    padding: 1em;
-    &__logo {
-        display: block;
-        line-height: 1.2;
-        margin: 0 auto;
-        max-width: $anchoMaximo;
+    position: relative;
+    z-index: $zIndexHeader;
+    @supports(display: grid) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / 1;
+        @include breakpoint {
+            background: transparent;
+            grid-column: 1 / 1;
+            grid-row: 1 / span 2;
+            margin-bottom: 0;
+        }
     }
-    &__trabajoActual {
+    &__titulo {
+        color: #fff;
+        display: block;
+        line-height: 1.05;
+        margin: 0 auto;
+        max-width: $anchoMaximoContenido;
+        padding: 1rem rem(15);
+        a {
+            background: $colorDestacado;
+            color: #fff;
+            display: inline-block;
+            font-size: rem(28);
+            font-weight: 600;
+            text-decoration: none;
+            &:hover {
+                background: #fff;
+                color: $colorDestacado;
+            }
+        }
+    }
+    &__trabajo {
         display: block;
         font-size: 1rem;
         font-weight: normal;
+        line-height: 1.25;
+        margin-top: 0.5em;
     }
-    &__enlaceHome {
-        color: #fff;
+    &__enlace-home {
         display: inline-block;
         font-size: 2rem;
         font-weight: 600;
         padding: 0.4rem 0.8rem 0.4rem 0.5rem;
         position: relative;
         text-decoration: none;
-        transition: color 0.1s;
         z-index: 1;
-        &::before {
-            background: darken($colorDestacado, 40%);
-            bottom: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-            content: '';
-            left: 0;
-            position: absolute;
-            right: 100%;
-            top: 0;
-            z-index: -1;
-            transition: right 0.2s, clip-path 0.2s;
-        }
-        &:active {
-            &::before {
-                right: 0;
-            }
-        }
         &:hover {
             color: $colorDestacado;
-            transition: color 0.2s linear 0.1s;
-            &::before {
-                clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
-                right: 0;
-                transition: right 0.2s ease-out, clip-path 0.2s linear;
-            }
+        }
+    }
+}
+
+.fondo-lateral {
+    grid-column: 1 / 1;
+    grid-row: 1 / span 3;
+    height: 100%;
+    visibility: hidden;
+    width: 100%;
+    z-index: $zIndexFondo;
+    @supports(display: grid) {
+        @include breakpoint {
+            visibility: visible;
         }
     }
 }

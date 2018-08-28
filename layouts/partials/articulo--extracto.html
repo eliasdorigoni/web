@@ -1,0 +1,34 @@
+<article class="articulo articulo--extracto">
+    <p class="articulo__fecha-publicacion"><time>{{ .Date.Day }} de {{ index $.Site.Data.meses (printf "%d" .Date.Month) }} del {{ .Date.Year }}</time></p>
+    <h2 class="articulo__titulo">
+        <a href="{{ .URL }}" class="post__enlaceVerPost" title="Leer el artículo: {{ .Title }}">
+            {{ if .Draft }}[DRAFT]{{ end }} {{ .Title }}
+        </a>
+    </h2>
+
+    {{ if .Description }}
+    <p class="articulo__descripcion">
+        {{ .Description }}
+    </p>
+    {{ end }}
+
+    {{ if or (isset .Params "etiquetas") (isset .Params "categorias") }}
+    <p class="articulo__taxonomias">
+        <span>
+        {{ with .Params.etiquetas }}
+            Etiquetas: {{ range $index, $term := . -}}
+                {{- if $index }}, {{ end -}}
+                <a href="{{ "/etiquetas/" | relLangURL }}{{ $term | urlize }}">{{ $term }}</a>
+                {{- end }} / 
+        {{ end }}
+
+        {{ with .Params.categorias }}
+        Categorías: {{ range $index, $term := . -}}
+            {{- if $index }}, {{ end -}}
+            <a href="{{ "/categorias/" | relLangURL }}{{ $term | urlize }}">{{ $term }}</a>
+            {{- end -}}
+        {{ end -}}
+        .</span>
+    </p>
+    {{ end }}
+</article>

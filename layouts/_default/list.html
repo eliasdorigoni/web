@@ -1,9 +1,0 @@
-{{ define "main" }}
-    <div class="{{ .Title | urlize }}">
-        <h1>{{ .Title }}</h1>
-        {{ range .Data.Pages }}
-            {{ partial "loop-extracto.html" . }}
-        {{ end }}
-    </div>
-    {{ template "_internal/pagination.html" . }}
-{{ end }}

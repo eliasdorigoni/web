@@ -1,8 +1,7 @@
 baseURL: "https://eliasdorigoni.com/"
 languageCode: "es"
 title: "Elías Dorigoni"
-sectionPagesMenu: "main"
-Paginate: 10
+Paginate: "10"
 PaginatePath: "pagina"
 disqusShortname: "eliasdorigoni"
 hrefTargetBlank: true
@@ -10,16 +9,10 @@ hrefTargetBlank: true
 blackfriday:
   extensionsmask: ["autolink"]
 
-menu:
-  main:
-    - name: "Blog"
-      weight: 1
-      identifier: "blog"
-      url: "/blog/"
-
 params:
     author: "Elias Dorigoni"
 
 taxonomies:
-    etiqueta: "etiquetas"
-    categoria: "categorias"
+    categoria: categorias
+    etiqueta: etiquetas
+DefaultContentLanguage: es

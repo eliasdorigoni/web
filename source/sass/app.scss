@@ -1,12 +1,12 @@
 @import 'base/variables';
+@import 'base/functions';
 @import 'base/mixins';
 
 @import 'vendor/normalize';
 @import 'vendor/prism';
 
-@import 'componentes/componentes';
+@import 'componentes/elementos';
 @import 'componentes/header';
 @import 'componentes/contenido';
-@import 'componentes/single';
-@import 'componentes/sidebar';
+@import 'componentes/articulo';
 @import 'componentes/footer';

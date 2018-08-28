@@ -1,10 +1,17 @@
 <footer class="footer">
-    <p>
-        <a href="https://twitter.com/eliasdorigoni" rel="noopener noreferrer" target="_blank" title="@EliasDorigoni en Twitter"><img src="/assets/svg/twitter.svg" alt="Twitter" /></a> &nbsp; <a href="https://github.com/eliasdorigoni" rel="noopener noreferrer" target="_blank" title="@EliasDorigoni en GitHub"><img src="/assets/svg/github.svg" alt="GitHub" /></a>
-    </p>
-    <p>
-        &copy; Elías Dorigoni<br>
-        Última actualización: <time>{{ index $.Site.Data.meses (printf "%d" now.Month) }} {{ now.Year }}</time><br>
-        Hecho en <span title="Argentina"><img src="/assets/svg/bandera.svg" alt="Argentina" /></span>
-    </p>
+    <div class="footer__contenido">
+        {{ with .Site.GetPage "status" }}
+            {{ if .Params.mostrar }}
+                <div class="disponibilidad">
+                    {{ .Content }}
+                </div>
+            {{ end }}
+        {{ end }}
+        <div class="footer__enlaces">
+            <p class="footer__redes">
+                <a href="https://twitter.com/eliasdorigoni" rel="noopener noreferrer" target="_blank">Twitter</a> / <a href="https://github.com/eliasdorigoni" rel="noopener noreferrer" target="_blank">GitHub</a>
+            </p>
+            <p class="creditos-iconos">Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy" target="_blank" rel="noopener">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener">CC 3.0 BY</a></p>
+        </div>
+    </div>
 </footer>

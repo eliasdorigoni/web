@@ -1,0 +1,13 @@
+@function rem($valor) {
+    @return #{($valor / 16)}rem;
+}
+
+// Retorna el color sólido que resulta de ubicar $colorFrente con $opacidad
+// sobre $colorFondo.
+@function transparentar($colorFrente, $opacidad, $colorFondo: #fff) {
+    $rojo: ($opacidad * red($colorFrente)) + ((1 - $opacidad) * red($colorFondo));
+    $verde: ($opacidad * green($colorFrente)) + ((1 - $opacidad) * green($colorFondo));
+    $azul: ($opacidad * blue($colorFrente)) + ((1 - $opacidad) * blue($colorFondo));
+
+    @return rgb($rojo, $verde, $azul);
+}
