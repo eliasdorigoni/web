@@ -108,7 +108,8 @@ gulp.task('eliminar-static', function() {
 
 gulp.task('mover-archivos-raiz', function() {
     return gulp.src([
-            './source/.htaccess'
+            './source/.htaccess',
+            './source/cv.pdf',
         ])
         .pipe(gulp.dest(CONFIG.dir.root))
 })
