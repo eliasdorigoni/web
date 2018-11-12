@@ -80,15 +80,6 @@
     a {
         color: #1779ba;
     }
-    a[target='_blank']::after {//sass-lint:disable-line force-pseudo-nesting,force-attribute-nesting
-        background: transparent url('../svg/enlace-externo.svg') scroll no-repeat center center;
-        background-size: cover;
-        content: '';
-        display: inline-block;
-        height: 1em;
-        margin-left: 0.25em;
-        width: 1em;
-    }
     ul,
     ol {
         padding-left: 1.25rem;
@@ -106,13 +97,9 @@
         }
     }
     p {
-        text-indent: 0.5em;
         .button,
         img {
             margin-left: -0.5em;
-        }
-        > code {
-            text-indent: 0;
         }
     }
     pre {
@@ -129,9 +116,9 @@
         text-indent: 0;
     }
     blockquote {
-        background-color: rgba(#000, 0.1);
+        background-color: rgba(#e7d10d, 0.35);
         border-left: rem(8) solid rgba(#000, 0.1);
-        margin-bottom: 1.2em;
+        margin: 0.8em 1em 1.2em;
         padding: 0.5em 0.75em;
         position: relative;
         code {
@@ -148,7 +135,7 @@
             margin: 0.3em 0 0.5em 0;
             padding-left: 1.35em;
             li {
-                margin-bottom: 0.1em;
+                margin-bottom: 0.15em;
             }
         }
     }

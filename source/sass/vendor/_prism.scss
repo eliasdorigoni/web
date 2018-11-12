@@ -67,8 +67,8 @@ pre[class*="language-"],
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: darken($colorFondoCodigo, 27%);
-    font-weight: 300;
+    color: rgba(#000, 0.55);
+    font-weight: 400;
     letter-spacing: -0.03rem;
 }
 
