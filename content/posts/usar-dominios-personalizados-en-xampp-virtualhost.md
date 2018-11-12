@@ -1,55 +1,19 @@
 ---
-title: "Usar dominios personalizados en XAMPP (VirtualHost)"
-date: 2018-01-26T20:56:20-03:00
-draft: true
-categorias:
-    - "apache"
-etiquetas: ["uno", "dos", "tres"]
+title: "Cómo usar dominios personalizados en XAMPP"
+date: 2018-11-12T09:00:00-03:00
+categorias: ["apache", "XAMPP", "VirtualHost"]
 ---
 
-Al trabajar en diferentes proyectos en XAMPP tarde o temprano se vuelve necesario organizarlos en carpetas, pero usar `http://localhost/mi-proyecto/` como la URL de un proyecto hace que sea difícil utilizar URLs relativas, y es muy probable que no refleje la estructura de URLs del servidor de producción. 
+¿Ya te cansaste de escribir <strong class="resaltado">http://localhost/wordpress/mi-proyecto/</strong>? ¿o de tener que poner `home_url()` antes de todas las rutas? Hay una forma mejor.
 
-En este post vamos a utilizar el dominio `http://mi-proyecto.local/` para ver el contenido `http://localhost/mi-proyecto/` en 2 pasos:
+Al final de este post vamos a poder ver el contenido de <ins>http://localhost/wordpress/mi-proyecto/</ins> utilizando el dominio <ins>http://mi-proyecto.local/</ins>.
 
-* mapear el dominio `http://mi-proyecto.local/` a **localhost**, y luego
-* indicar a Apache el directorio que debe usar para ese dominio.
+Esto está probado en **XAMPP 5.6.30** en Windows 10.
 
-> Algunas cosas a tener en cuenta:
+> **Importante**: hacé backup de lo que modifiques.
 
-> * esta guía fue escrita usando XAMPP 5.6.30 instalado en Windows 10,
-
-> * como siempre, asegurate de tener copias de seguridad de todo lo que modifiques,
-
-
-## Paso 1: redireccionar dominios a *localhost*
-
-Todos los dominios apuntan a una IP que se resuelve en los servidores de nombre de dominio. Para saltear la resolución e indicar manualmente la IP de un dominio, podemos agregarlos en `<RUTA-DE-WINDOWS>/System32/drivers/etc/hosts`, agregando una nueva fila por cada dominio a redireccionar. El archivo sin modificar se ve algo así:
-
-```hosts
-# Copyright (c) 1993-2009 Microsoft Corp.
-#
-# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
-#
-# This file contains the mappings of IP addresses to host names. Each
-# entry should be kept on an individual line. The IP address should
-# be placed in the first column followed by the corresponding host name.
-# The IP address and the host name should be separated by at least one
-# space.
-#
-# Additionally, comments (such as these) may be inserted on individual
-# lines or following the machine name denoted by a '#' symbol.
-#
-# For example:
-#
-#      102.54.94.97     rhino.acme.com          # source server
-#       38.25.63.10     x.acme.com              # x client host
-
-# localhost name resolution is handled within DNS itself.
-#   127.0.0.1       localhost
-#   ::1             localhost
-```
-
-Simplemente hay que agregar una nueva fila por cada dominio, en este caso se agrega `127.0.0.1   mi-proyecto.local`:
+## Paso 1: redirigir el dominio a localhost
+En primer lugar hay que indicarle a Windows que el dominio `http://mi-proyecto.local/` está en esta misma PC. Para esto hay que editar el archivo `<RUTA-DE-WINDOWS>/System32/drivers/etc/hosts` y agregar una nueva fila por cada dominio a redireccionar. En este caso se agrega `127.0.0.1   mi-proyecto.local`:
 
 ```hosts
 # [...]
@@ -60,36 +24,42 @@ Simplemente hay que agregar una nueva fila por cada dominio, en este caso se agr
 127.0.0.1    mi-proyecto.local
 ```
 
-Al ingresar con el navegador a `mi-proyecto.local/` se debería ver el contenido de *localhost*.
+Si ahora probamos ingresar con el navegador a <a href="http://mi-proyecto.local/" target="_blank" rel="noopener">http://mi-proyecto.local/</a> se debería ver el mismo contenido que si ingresamos a <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> (algunos navegadores requieren que la URL termine con una barra "/").
 
 > * Se pueden agregar más dominios para otros proyectos, y no es necesario que sean *.local*. Pueden ser .dev, .test, etc.
-* En algunos navegadores es necesario que la ruta termine con "/" (**mi-proyecto.local/**) para que la URL no sea tratada como un término de busqueda.
+* También se puede declarar una sola vez la IP y definir los dominios como una lista separada por espacios. Debería ser más rápido o eficiente que la forma tradicional, aunque en mi opinión es mucho menos legible.
 
-## Paso 2: Editar httpd-vhosts.conf
 
-Ahora que `mi-proyecto.local/` redirecciona a *localhost*, Apache puede relacionar ese dominio con un directorio específico. En el archivo ubicado en `<XAMPP>\apache\conf\extra\httpd-vhosts.conf` hay que agregar uno de estos bloques por cada dominio:
+## Paso 2: Relacionar dominio y carpetas
+
+Apache puede servir más de un sitio web en la misma IP mediante <a href="https://httpd.apache.org/docs/2.4/vhosts/index.html" target="_blank">VirtualHost</a>.
+
+En primer lugar XAMPP tiene que estar **completamente cerrado**. Hay que abrir el archivo `<RUTA-DE-XAMPP>\apache\conf\extra\httpd-vhosts.conf` y agregar uno de estos bloques `<VirtualHost>` por cada dominio:
 
 ```apacheconf
 <VirtualHost mi-proyecto.local>
+    # Permite definir subdominios. En este caso debe ser igual al definido en VirtualHost
     ServerName mi-proyecto.local
-    DocumentRoot "<XAMPP>/htdocs/mi-proyecto"
+
+    # La raíz del proyecto, sin barra lateral.
+    DocumentRoot "<RUTA-DE-XAMPP>/htdocs/wordpress/mi-proyecto"
+
+    # Guarda todos los requests recibidos de este dominio en `<XAMPP>/apache/logs`.
+    # La opción **common** configura el formato de cada línea como CLF (https://httpd.apache.org/docs/2.4/logs.html).
     CustomLog "logs/mi-proyecto.local.custom.log" common
+
+    # Lo mismo que el anterior pero para errores.
     ErrorLog "logs/mi-proyecto.local.error.log"
 </VirtualHost>
 ```
 
-Vamos por partes:
+> En internet hay muchos otros tutoriales que usan otras directivas o valores. Este bloque es el que me funciona a mí. En internet hay otras configuraciones que se pueden probar, o de última siempre está disponible la [documentación de Virtual Hosts de Apache](https://httpd.apache.org/docs/2.4/vhosts/index.html) para revisar.
 
-- La directiva `<VirtualHost>` contiene directivas que aplican a un dominio específico: en este caso, `mi-proyecto.local/`
-- La directiva `ServerName` se usa para definir subdominios dentro de una misma IP, pero en este caso simplemente la usamos para definir el dominio de esta directiva. Hay que usar el mismo dominio que en `<VirtualHost>`.
-- En `DocumentRoot` se define la raíz de la ruta del proyecto, sin barra al final.
+Después de iniciar o reiniciar Apache, al ingresar a <a href="http://mi-proyecto.local/" target="_blank" rel="noopener">http://mi-proyecto.local/</a> se debería el mismo contenido que <a href="http://localhost/wordpress/mi-proyecto/" target="_blank" rel="noopener">http://localhost/wordpress/mi-proyecto/</a> **A MENOS** que el proyecto esté en WordPress.
 
-> Las rutas pueden ser absolutas o relativas a la raíz de la carpeta de instalación de XAMPP. Por ejemplo, se puede configurar como `DocumentRoot "/htdocs/mi-proyecto"` o si tengo XAMPP instalado en "C://xampp" como `DocumentRoot "C://xampp/htdocs/mi-proyecto"`.
+## Paso 3: cambiar el dominio en el proyecto
+En muchos frameworks o CMS el dominio se guarda en el código o en la base de datos. Si está en el código, se cambia ahí. Si está en la base de datos se puede editar ingresando al sitio con la URL original, o editar la base de datos directamente con <a href="http://localhost/phpmyadmin/" target="_blank" rel="noopener">phpMyAdmin</a>.
 
-Las otras dos líneas son opcionales pero útiles:
+En WordPress el nombre de dominio se guarda en las filas 1 y 2 de la columna `option_value` en la tabla `wp_options`. Si fisgoneás un poco te habrás dado cuenta que el dominio también se guarda en la columna `guid` de la tabla `wp_posts`, pero WordPress mismo advierte que <a href="https://codex.wordpress.org/Changing_The_Site_URL#Important_GUID_Note" target="_blank" rel="noopener">no es necesario ni recomendable editarlo</a>.
 
-- En **ErrorLog** se puede definir un archivo donde se van a guardar los registros de errores de Apache. De manera predeterminada todos los errores quedan guardados en `<XAMPP>/apache/logs/error.log`.
-- La directiva **CustomLog** es similar, pero guarda los registros de los pedidos que realicen los clientes hacia el servidor. Por defecto quedan guardados en `<XAMPP>/logs/access.log`. La opción **common** configura la salida para que cada línea del registro siga el formato [CLF](https://httpd.apache.org/docs/2.4/logs.html).
-
-## Cierre
-En internet hay muchas formas de configurar dominios, en concreto las directivas usadas dentro del bloque *&lt;VirtualHost&gt;*. Las directivas descritas en este post son las que me funcionaron en diferentes equipos con Windows 7, 8 y 10. En caso de que no funcionen, siempre está disponible la [documentación de Virtual Hosts de Apache](https://httpd.apache.org/docs/2.4/vhosts/index.html) para revisar.
+Y eso es todo.
