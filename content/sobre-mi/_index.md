@@ -38,7 +38,3 @@ Sigo diferentes estándares como **PSR-1** y **PSR-2** para PHP y **BEM** para C
     * Gulp (en activo)
 * Git / GitLab / GitHub / BitBucket
 * SVG.
-
-## Trabajos y proyectos
-
-Actualmente estoy trabajando para Sooft Technology.
