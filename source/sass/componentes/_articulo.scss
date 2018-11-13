@@ -10,9 +10,6 @@
             margin: 0;
             text-align: left;
         }
-        #{$padre}__taxonomias {
-            text-align: right;
-        }
     }
     header {
         margin-bottom: 2em;
@@ -142,10 +139,18 @@
     table {
         border-collapse: collapse;
         border-spacing: 0.2em;
+        margin-bottom: 1.4em;
+        &.sin-bordes td {//sass-lint:disable-line force-element-nesting
+            border: 0;
+        }
+        &.centrar {
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
     td {
         border: 1px solid #999;
-        padding: 0.2em 0.3em;
+        padding: 0.25em 0.25em;
     }
 }
 

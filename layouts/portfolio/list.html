@@ -3,7 +3,7 @@
     {{ partial "navegacion" . }}
 
     {{ if or (eq (getenv "HUGO_ENV") "production") (eq .Site.Params.env "production") (true) }}
-        <p>En construcción...</p>
+        <p>En <em>eterna</em> construcción...</p>
     {{ else }}
         <ul>
         {{ range .Data.Pages }}
