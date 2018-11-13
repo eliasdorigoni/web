@@ -2,8 +2,7 @@
 title: "Textos en una fuente, numeros en otra."
 date: 2018-08-28T17:56:52-03:00
 description: Mientras quede bonito...
-categorias: ["CSS"]
-etiquetas: ["fuentes", "google fonts"]
+categorias: ["CSS", "Fuentes"]
 ---
 
 **No me gustan los números de Raleway.** Si a la diseñadora no le gustan y al cliente tampoco, tenemos vía libre para buscar una alternativa. En este post vamos a mostrar los textos en Raleway y los números en Open Sans, usando sólo CSS.
