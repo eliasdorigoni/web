@@ -12,8 +12,8 @@ $anchoMaximoContenido: 50rem;
 $colorFondoSitio: #f8f8f8;
 $colorDestacado: #f54337;
 
-$colorTitulos: #333;
-$colorTextos: #333;
+$colorTitulos: $colorDestacado;
+$colorTextos: #424242;
 $colorMetadatos: darken($colorFondoSitio, 35%);
 
 $stackPrincipal: 'Source Sans Pro', Roboto, Arial, sans-serif;

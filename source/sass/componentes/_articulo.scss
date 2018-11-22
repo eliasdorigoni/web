@@ -16,7 +16,7 @@
     }
     &__titulo {
         color: $colorTextos;
-        font-size: rem(28);
+        font-size: rem(24);
         font-weight: 600;
         line-height: 1.2;
         margin: 0 0 0.35em;
@@ -52,27 +52,30 @@
 }
 
 .articulo__contenido {
-    margin-bottom: 0.5em;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    line-height: 1.4;
+    margin-bottom: 2.5em;
+    padding-bottom: 2em;
     h1,
     h2,
-    h3 {
-        color: $colorTextos;
-        font-weight: 600;
+    h3,
+    h4 {
+        color: $colorTitulos;
+        font-weight: 400;
         line-height: 1.25;
-        margin-bottom: 0.5em;
-        margin-top: 1.6em;
-        position: relative;
+        margin: 1.5em 0 0.5em;
     }
     h1 {
-        font-weight: 600;
+        font-size: rem(26);
     }
     h2 {
-        font-size: rem(23);
-        margin-bottom: 1em;
+        font-size: rem(20);
     }
     h3 {
-        font-size: rem(20);
-        font-weight: 600;
+        font-size: rem(18);
+    }
+    h4 {
+        font-size: rem(16);
     }
     a {
         color: #1779ba;
@@ -82,7 +85,7 @@
         padding-left: 1.25rem;
         text-align: left;
         li {
-            margin-bottom: 0.5em;
+            margin-bottom: 0.25em;
             > ul,
             > ol {
                 margin-top: 0.5em;
@@ -107,23 +110,30 @@
         display: inline;
         font-size: rem(15);
         font-weight: normal;
-        padding: 0;
+        padding: 0.15em 0.3em;
     }
     img {
-        text-indent: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     blockquote {
         background-color: rgba(#e7d10d, 0.35);
-        border-left: rem(8) solid rgba(#000, 0.1);
-        margin: 0.8em 1em 1.2em;
-        padding: 0.5em 0.75em;
+        border-left: rem(6) solid rgba(#000, 0.1);
+        margin: 0.8em 0 1.2em 0.75em;
+        padding: 0.5em 1.15em;
         position: relative;
+        h1,
+        h2 {
+            color: $colorTextos;
+            font-weight: 600;
+            margin-top: 0;
+        }
         code {
             background-color: rgba(#000, 0.15);
         }
         p {
             line-height: 1.35;
-            text-indent: 0;
             &:last-child {
                 margin: 0;
             }
@@ -147,10 +157,26 @@
             margin-left: auto;
             margin-right: auto;
         }
+        th {
+            padding: 0.1rem 0.35rem;
+        }
+        svg {
+            display: block;
+        }
     }
     td {
         border: 1px solid #999;
         padding: 0.25em 0.25em;
+    }
+    figcaption {
+        color: lighten($colorTextos, 20%);
+        font-size: 0.9rem;
+        text-align: center;
+        h4 {
+            color: inherit;
+            font-size: inherit;
+            margin: 0.25em 0 0;
+        }
     }
 }
 
