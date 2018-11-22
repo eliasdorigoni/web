@@ -78,8 +78,8 @@ gulp.task('sass', ['sasslint'], function(cb) {
         .pipe(gulp.dest(CONFIG.dir.assets + 'css/'))
 })
 
-gulp.task('comprimir-scripts', function() {
-    return gulp.src('./source/js/*')
+gulp.task('comprimir-scripts-posts', function() {
+    return gulp.src('./source/js/posts/*.js')
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.init()))
         .pipe(uglify())
         .on('error', function(err) {
@@ -87,16 +87,16 @@ gulp.task('comprimir-scripts', function() {
         })
         .pipe(rename({suffix: '.min'}))
         .pipe(gulpif(CONFIG.noEsBuild, sourcemaps.write()))
-        .pipe(gulp.dest(CONFIG.dir.assets + 'js/'))
+        .pipe(gulp.dest(CONFIG.dir.assets + 'js/posts/'))
 })
 
-gulp.task('mover-scripts-vendor', function() {
+gulp.task('copiar-dependencias-scripts', function() {
     return gulp.src('./source/js/vendor/*')
         .pipe(gulp.dest(CONFIG.dir.assets + 'js/'))
 })
 
 gulp.task('comprimir-svg', function() {
-    return gulp.src('./source/svg/*.svg')
+    return gulp.src('./source/svg/**/*.svg')
         .pipe(newer(CONFIG.dir.assets + 'svg'))
         .pipe(imagemin())
         .pipe(gulp.dest(CONFIG.dir.assets + 'svg/'))
@@ -115,8 +115,8 @@ gulp.task('mover-archivos-raiz', function() {
 })
 
 var tareasComunes = [
-    'comprimir-scripts',
-    'mover-scripts-vendor',
+    'comprimir-scripts-posts',
+    'copiar-dependencias-scripts',
     'sass',
     'comprimir-imagenes',
     'comprimir-svg',
@@ -128,9 +128,9 @@ gulp.task('default', tareasComunes)
 
 gulp.task('watch', tareasComunes, function() {
     gulp.watch('./source/img/**/*', ['comprimir-imagenes'])
-    gulp.watch('./source/js/**/*', ['comprimir-scripts'])
+    gulp.watch('./source/js/**/*', ['comprimir-scripts-posts'])
     gulp.watch('./source/sass/**/*.scss', ['sass'])
-    gulp.watch('./source/svg/*.svg', ['comprimir-svg'])
+    gulp.watch('./source/svg/**/*.svg', ['comprimir-svg'])
     gulp.watch('./source/svg/sprite/*.svg', ['svg-sprite'])
 })
 
