@@ -46,6 +46,12 @@
     </article>
     
     {{ template "_internal/disqus.html" . }}
+
+    {{ with .Params.js }}
+    {{ range $index, $script := . -}}
+    <script src="/assets/js/posts/{{ $script }}.min.js"></script>
+    {{- end -}}
+    {{ end }}
     
 </section>
 {{ end }}
