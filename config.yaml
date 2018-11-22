@@ -14,5 +14,5 @@ params:
 
 taxonomies:
     categoria: categorias
-    etiqueta: etiquetas
+    serie: series
 DefaultContentLanguage: es
