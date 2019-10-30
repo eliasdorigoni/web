@@ -1,12 +1,12 @@
 ---
-title: "Suma todos los numeros de 1 a N"
+title: "Sumar todos los numeros de 1 a N"
 date: 2019-10-29T23:30:00-03:00
 categorias: ["Algoritmos", "PHP"]
 ---
 
 Recientemente hice una prueba en HackerRank y me dí cuenta que no tengo idea de algoritmos.
 
-En mi día a día normal no tengo necesidad de utilizarlos, por lo que cuando cuando el desafío era hacer una función que sume un array de números del 1 a 100 (teniendo como input el array y la cantidad de valores del array), lo que hice fue:
+En el día a día no tengo necesidad de utilizarlos, por lo que cuando el desafío era hacer una función que sume un array de números del 1 a 100 (teniendo como parametros el array y la cantidad de valores del array), lo que hice fue:
 
 ```php
 function sumAllNumbers(array $array, int $count): int
