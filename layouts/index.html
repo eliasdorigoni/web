@@ -2,9 +2,9 @@
 
     <section class="wrapper-contenido wrapper-contenido--articulos">
         {{ partial "navegacion" . }}
-        {{ $articulos := where .Pages "Section" "posts" }}
-        {{ range $articulos }}
-            {{ partial "articulo--extracto.html" . }}
+        {{ $posts := where (where .Site.Pages ".IsPage" true) "Section" "posts" }}
+        {{ range $posts }}
+            {{ partial "article--excerpt.html" . }}
         {{ end }}
     </section>
 

@@ -1,7 +1,8 @@
 <article class="articulo articulo--extracto">
+
     <p class="articulo__fecha-publicacion"><time>{{ .Date.Day }} de {{ index $.Site.Data.meses (printf "%d" .Date.Month) }}, {{ .Date.Year }}</time></p>
     <h2 class="articulo__titulo">
-        <a href="{{ .URL }}" class="post__enlaceVerPost" title="Leer el artículo: {{ .Title }}">
+        <a href="{{ .Permalink }}" class="post__enlaceVerPost" title="Leer el artículo: {{ .Title }}">
             {{ if .Draft }}[DRAFT]{{ end }} {{ .Title }}
         </a>
     </h2>

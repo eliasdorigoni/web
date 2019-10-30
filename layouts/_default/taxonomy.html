@@ -3,7 +3,7 @@
         {{ partial "navegacion" . }}
         <h1 class="titulo-taxonomia">Artículos en "{{ .Title }}":</h1>
         {{ range .Data.Pages }}
-            {{ partial "articulo--extracto.html" . }}
+            {{ partial "article--excerpt.html" . }}
         {{ end }}
     </section>
 {{ end }}

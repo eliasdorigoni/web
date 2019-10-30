@@ -7,7 +7,7 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        {{ .Hugo.Generator }}
+        {{ hugo.Generator }}
         <META NAME="ROBOTS" CONTENT="
         {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") -}}
         INDEX, FOLLOW
@@ -16,10 +16,10 @@
         {{- end -}}
         ">
 
-        {{- if .RSSLink -}}
-        <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-        <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-        {{- end -}}
+        {{ with .OutputFormats.Get "RSS" }}
+        <link href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="feed" />
+        <link href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}" rel="alternate" />
+        {{ end }}
 
         {{- template "_internal/opengraph.html" . -}}
         {{- template "_internal/google_news.html" . -}}
