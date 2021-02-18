@@ -1,40 +1,45 @@
 ---
 title: "Sobre mí"
-description: "Elias Dorigoni - Desarrollador web en Concordia, Entre Rios"
 date: 2017-09-25T15:42:42-03:00
 type: page
 ---
 
-## Hola! Mi nombre es Elías Dorigoni.
+## Hola!
 
-Soy un desarrollador web full-stack. He realizado proyectos de diferentes tipos: sitios institucionales, tiendas online, landings, diarios digitales, sitios con mucha actividad y más.
+Soy un desarrollador fullstack de 29 años, ubicado en Cordoba capital desde 2019.
 
-Mi stack está basado en **PHP / MySQL**. Desarrollé sitios en **WordPress** durante más de 3 años lo que me permitió conocer a fondo el uso y creación de themes y plugins. También trabajé con **CodeIgniter**, **Slim** y **Hugo** (como este, mi sitio personal).
+Actualmente trabajo en el departamento de I+D de [La Voz del Interior](https://lavoz.com.ar), desarrollando sitios en Laravel de uso interno que se integran con sistemas propios y de terceros a través de APIs REST y SOAP.
 
-Tengo experiencia trabajando con diferentes **APIs** como la de Google Maps, Dropbox, Twitter, Facebook, OpenWeather y alguna que otra más.
+Previamente desarrollé más de 40 sitios web en WordPress para diferentes clientes: sitios institucionales, tiendas online, landings, diarios digitales, sitios con mucha actividad, etc. Desarrollé themes y plugins desde cero.
 
-Recurro a **Python** cuando necesito hacer algo *menos web*, como herramientas para tiendas online, conversores de divisas, correctores de stock, carga de imágenes, correcciones gramaticales; o herramientas para migrar información de manera masiva.
-
-Sigo diferentes estándares como **PSR-1** y **PSR-2** para PHP y **BEM** para CSS para poder crear código que sea fácil de seguir por cualquier persona.
+Tengo experiencia trabajando con diferentes **APIs** como la de Google Maps, Dropbox, Twitter, Facebook y OpenWeather. Últimamente estuve interactuando con la de Twitch.
 
 ## Tecnologías
 
-* XHTML / HTML5
-* CSS / CSS3
-    * Animaciones
-    * Transiciones
-    * Flexbox
-    * Grid
-* SASS
-* JavaScript / jQuery / Vue.js
-* PHP
-* Python (orientado a scripts de escritorio).
-* SQL
-    * MySQL
-    * SQLite
-    * SQL Server
-* Task runners:
-    * Grunt
-    * Gulp (en activo)
-* Git / GitLab / GitHub / BitBucket
-* SVG.
+### Lenguajes de programación y sistemas
+**PHP** es mi lenguaje principal y **Laravel** mi framework de preferencia.
+
+Hice algunos proyectos en **Python** y **C#**, pero nada muy elaborado. Para herramientas rápidas o tareas repetitivas suelo usar **Bash**, o Python si es un poquito más complejo.
+
+Fuera del trabajo y como hobby hago cosas con **Arduino**, asi que sé un poco de la variante de **C++** que usa.
+
+En cuanto a sistemas operativos uso **Ubuntu** en lo laboral, **Linux Mint** o **Raspbian** para proyectos personales y **Windows** para el tiempo de ocio. Conozco y trabajo en servidores corriendo en instancias de **Docker**.
+
+
+### Bases de datos
+Uso **MySQL** o **MariaDB** generalmente. Trabajé con **SQL Server** pero siempre con bases existentes, nunca tuve oportunidad de crear una. Trabajé con **SQLite** para los tests automatizados de Laravel.
+
+### Hojas de estilos
+Uso **CSS** desde que no existían los preprocesadores. He usado SASS con el procesador original de Ruby, con el de GulpJS, con el de webpack, dentro de componentes de VueJS, etc.
+
+Hoy en día me gusta armar proyectos usando **Tailwind**, lo encuentro más práctico.
+
+### Javascript
+Hasta ahora no desarrollé apps que sean 100% javascript, siempre los scripts fueron "agregados" al proyecto. Sin embargo conozco **Vue**, **webpack**, **jQuery**, y **Javascript** tradicional.
+
+He preparado task runners en **Grunt** y **Gulp** (como este sitio).
+
+
+### GIT
+
+Uso **Bitbucket** en lo laboral (por el ecosistema de Atlassian) y **GitHub** para lo personal. He usado **GitLab** anteriormente.
