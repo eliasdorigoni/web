@@ -1,8 +1,4 @@
-*.sublime-project
-*.sublime-workspace
 /node_modules
-/public
-/static
-
+.next
 .vs-code
 *.code-workspace

@@ -1,9 +1,0 @@
-{{ define "main" }}
-    <section class="wrapper-contenido wrapper-contenido--articulos">
-        {{ partial "navegacion" . }}
-        <h1 class="titulo-taxonomia">Artículos en "{{ .Title }}":</h1>
-        {{ range .Data.Pages }}
-            {{ partial "article--excerpt.html" . }}
-        {{ end }}
-    </section>
-{{ end }}
