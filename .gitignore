@@ -1,4 +1,4 @@
 /node_modules
 .next
-.vs-code
+.vscode
 *.code-workspace
