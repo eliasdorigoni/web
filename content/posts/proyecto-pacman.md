@@ -1,6 +1,6 @@
 ---
 title: "Proyecto Pacman"
-date: 2019-06-24T21:59:53-03:00
+date: "2019-06-24T21:59:53-03:00"
 description: Intentando nuevas cosas
 categorias: ["Pacman"]
 ---

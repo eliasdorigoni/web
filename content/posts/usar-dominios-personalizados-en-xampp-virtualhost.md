@@ -1,6 +1,6 @@
 ---
 title: "Cómo usar dominios personalizados en XAMPP"
-date: 2018-11-12T09:00:00-03:00
+date: "2018-11-12T09:00:00-03:00"
 categorias: ["XAMPP"]
 ---
 

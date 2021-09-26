@@ -1,6 +1,6 @@
 ---
 title: "Hooks, filters y actions en WordPress"
-date: 2018-03-01T16:00:00-03:00
+date: "2018-03-01T16:00:00-03:00"
 categorias: ["WordPress"]
 draft: true
 ---
@@ -48,7 +48,7 @@ echo $precio; // 15.99
 Supongamos que desarrollamos un plugin que muestra los primeros seis eventos de un lugar:
 
 ```php
-// Plugin: 
+// Plugin:
 
 function mostrarEventos() {
     $cantidad = 6;
@@ -93,4 +93,4 @@ El valor `1` indica la **cantidad de parámetros** que acepta la función que ag
 $variable = apply_filters($hook, $valor, $valorExtra1, $valorExtra2, [...]);
 ```
 
-No es necesario que las funciones que definamos acepten todos los argumentos, pero 
+No es necesario que las funciones que definamos acepten todos los argumentos, pero

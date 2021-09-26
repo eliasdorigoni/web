@@ -1,6 +1,6 @@
 ---
 title: "Imagenes en la web: el píxel"
-date: 2018-11-12T15:00:00-03:00
+date: "2018-11-12T15:00:00-03:00"
 draft: true
 categorias: ["imagen"]
 series: ["Imagenes en la web"]

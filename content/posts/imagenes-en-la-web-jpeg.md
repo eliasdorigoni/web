@@ -1,6 +1,6 @@
 ---
 title: "Imagenes en la web: el formato JPEG"
-date: 2018-11-12T16:00:00-03:00
+date: "2018-11-12T16:00:00-03:00"
 draft: true
 categorias: ["Imagenes web"]
 ---

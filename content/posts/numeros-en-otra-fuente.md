@@ -1,6 +1,6 @@
 ---
 title: "Textos en una fuente, numeros en otra."
-date: 2018-08-28T17:56:52-03:00
+date: "2018-08-28T17:56:52-03:00"
 description: Mientras quede bonito...
 categorias: ["CSS", "Fuentes"]
 ---

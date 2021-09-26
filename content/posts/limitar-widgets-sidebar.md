@@ -1,12 +1,12 @@
 ---
 title: "Limitar y aleatorizar widgets de un sidebar"
-date: 2018-08-07T17:00:00-03:00
-lastmod: 2018-08-10T15:00:00-03:00
+date: "2018-08-07T17:00:00-03:00"
+lastmod: "2018-08-10T15:00:00-03:00"
 categorias: ["WordPress"]
 draft: true
 ---
 
-En este artículo vamos a filtrar los widgets de un sidebar para limitar la cantidad a mostrar, y los vamos a ordenar aleatoriamente. Estas funciones se pueden aplicar a muchos casos, pero originalmente lo realicé para mostrar banners publicitarios usando widgets de imagen. 
+En este artículo vamos a filtrar los widgets de un sidebar para limitar la cantidad a mostrar, y los vamos a ordenar aleatoriamente. Estas funciones se pueden aplicar a muchos casos, pero originalmente lo realicé para mostrar banners publicitarios usando widgets de imagen.
 
 Si instalar un plugin resulta *overkill* podemos usar este snippet, que es sencillo de utilizar y fácil de integrar.
 
@@ -58,7 +58,7 @@ function mezclarWidgetsBarraLateral($sidebars_widgets) {
     if (is_admin() || empty($sidebars_widgets[$id])) {
         return $sidebars_widgets;
     }
-    
+
     // Mezclamos los widgets del sidebar.
     if (count($sidebars_widgets[$id]) > 1) {
         shuffle($sidebars_widgets[$id]);
