@@ -1,6 +1,8 @@
+import Layout from "../components/Layout";
+
 export default function SobreMi() {
   return (
-    <>
+    <Layout>
       <h2>Hola!</h2>
 
       <p>Soy un desarrollador fullstack de 29 años, ubicado en Cordoba capital desde 2019.
@@ -35,7 +37,7 @@ export default function SobreMi() {
       <p>
         Uso **Bitbucket** en lo laboral (por el ecosistema de Atlassian) y **GitHub** para lo personal. He usado **GitLab** anteriormente.
       </p>
-    </>
+    </Layout>
   )
 }
 
