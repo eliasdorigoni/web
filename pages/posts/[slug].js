@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Layout from '../../components/Layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
 import Head from 'next/head'
-import markdownToHtml from '../../lib/markdownToHtml'
+import Layout from '~/components/Layout'
+import { getPostBySlug, getAllPosts } from '~/lib/api'
+import markdownToHtml from '~/lib/markdownToHtml'
 
 export default function Post({ post, preview }) {
   const router = useRouter()
@@ -12,27 +12,27 @@ export default function Post({ post, preview }) {
   }
   return (
     <Layout>
+      <Head>
+        <title key="title">
+          {post.title} | Titulo
+        </title>
+        <link key="font" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
+        <link href="/prism/prism.css" rel="stylesheet" />
+      </Head>
 
-        {router.isFallback ? (
-          <p>Loading…</p>
-        ) : (
-
-          <article className="mb-32">
-            <Head>
-              <title>
-                {post.title} | Titulo
-              </title>
-            </Head>
-            <p>{post.title}</p>
-            <p>{post.date}</p>
-            <p>{post.author}</p>
-
-            <div>
-                {post.content}
+      {router.isFallback ? (
+        <p>Loading…</p>
+      ) : (
+        <div>
+          <h1 className="text-2xl text-center">{post.title}</h1>
+          <p className="text-center mb-8 italic">{post.date}</p>
+          <article className="pb-32 main-article">
+            <div dangerouslySetInnerHTML={{__html: post.content}}>
             </div>
           </article>
-
-        )}
+          <script src="/prism/prism.min.js" type="text/javascript" />
+        </div>
+      )}
 
     </Layout>
   )

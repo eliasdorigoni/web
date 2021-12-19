@@ -1,21 +1,14 @@
-import Head from 'next/head'
-import Layout from '../components/Layout'
-import PostExcerpt from '../components/PostExcerpt'
-import { getAllPosts } from '../lib/api'
+import Layout from '~/components/Layout'
+import PostExcerpt from '~/components/PostExcerpt'
+import { getAllPosts } from '~/lib/api'
 
 export default function Home({posts}) {
   return (
-    <>
-      <Head>
-        <title>Elías Dorigoni - Desarrollador web</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Layout>
-        { posts && posts.map(post => (
-          <PostExcerpt post={post} />
-        )) }
-      </Layout>
-    </>
+    <Layout>
+      { posts && posts.map(post => (
+        <PostExcerpt post={post} key={post.slug} />
+      )) }
+    </Layout>
   )
 }
 
@@ -24,6 +17,7 @@ export async function getStaticProps() {
     'title',
     'slug',
     'date',
+    'description',
   ])
 
   return {
