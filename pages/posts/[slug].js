@@ -17,7 +17,9 @@ export default function Post({ post, preview }) {
           {post.title} | Titulo
         </title>
         <link key="font" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
-        <link href="/prism/prism.css" rel="stylesheet" />
+        <link key="prism" type="text/css" href="https://unpkg.com/prismjs@1.25.0/themes/prism.css" rel="stylesheet" />
+        {/* <link key="prism" type="text/css" href="https://unpkg.com/prismjs@1.25.0/themes/prism-okaidia.css" rel="stylesheet" /> */}
+
       </Head>
 
       {router.isFallback ? (
@@ -30,7 +32,8 @@ export default function Post({ post, preview }) {
             <div dangerouslySetInnerHTML={{__html: post.content}}>
             </div>
           </article>
-          <script src="/prism/prism.min.js" type="text/javascript" />
+          <script src="https://unpkg.com/prismjs@1.25.0/components/prism-core.min.js"></script>
+          <script src="https://unpkg.com/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js"></script>
         </div>
       )}
 

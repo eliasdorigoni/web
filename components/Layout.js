@@ -7,11 +7,7 @@ export default function Layout({ children }) {
     <>
       <Head>
         <title>Elías Dorigoni - Desarrollador web</title>
-        <link key="font" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-coy-without-shadows.min.css"
-          type="text/css"
-        />
+        <link key="font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" />
       </Head>
       <div className="bg-gray-200 min-h-screen font-sans">
         <header className="bg-primary text-white text-center pt-2 pb-4 mb-4">
