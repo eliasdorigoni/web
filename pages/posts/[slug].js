@@ -5,6 +5,22 @@ import Layout from '~/components/Layout'
 import { getPostBySlug, getAllPosts } from '~/lib/api'
 import markdownToHtml from '~/lib/markdownToHtml'
 
+function formatDate(isoDate) {
+  let months = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
+  ]
+
+  let day = isoDate.substr(8, 2),
+    month = months[parseInt(isoDate.substr(5, 2))],
+    year = isoDate.substr(0, 4),
+    hour = isoDate.substr(11, 2),
+    minute = isoDate.substr(14, 2),
+    second = isoDate.substr(17, 2)
+
+  return `${day} de ${month}, ${year} - ${hour}:${minute}`
+}
+
 export default function Post({ post, preview }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
@@ -14,7 +30,7 @@ export default function Post({ post, preview }) {
     <Layout>
       <Head>
         <title key="title">
-          {post.title} | Titulo
+          {post.title} | Elías Dorigoni - Desarrollador web
         </title>
         <link key="font" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
         <link key="prism" type="text/css" href="https://unpkg.com/prismjs@1.25.0/themes/prism.css" rel="stylesheet" />
@@ -27,7 +43,7 @@ export default function Post({ post, preview }) {
       ) : (
         <div>
           <h1 className="text-2xl text-center">{post.title}</h1>
-          <p className="text-center mb-8 italic">{post.date}</p>
+          <p className="text-center mb-8 italic">Publicado el {formatDate(post.date)}</p>
           <article className="pb-32 main-article">
             <div dangerouslySetInnerHTML={{__html: post.content}}>
             </div>
