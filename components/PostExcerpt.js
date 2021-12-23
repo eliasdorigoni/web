@@ -7,7 +7,7 @@ function formatDate(isoDate) {
   ]
 
   let day = isoDate.substr(8, 2),
-    month = months[parseInt(isoDate.substr(5, 2))],
+    month = months[parseInt(isoDate.substr(5, 2))-1],
     year = isoDate.substr(0, 4),
     hour = isoDate.substr(11, 2),
     minute = isoDate.substr(14, 2),

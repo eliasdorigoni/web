@@ -12,7 +12,7 @@ function formatDate(isoDate) {
   ]
 
   let day = isoDate.substr(8, 2),
-    month = months[parseInt(isoDate.substr(5, 2))],
+    month = months[parseInt(isoDate.substr(5, 2))-1],
     year = isoDate.substr(0, 4),
     hour = isoDate.substr(11, 2),
     minute = isoDate.substr(14, 2),
@@ -44,9 +44,9 @@ export default function Post({ post, preview }) {
         <div>
           <h1 className="text-2xl text-center">{post.title}</h1>
           <p className="text-center mb-8 italic">Publicado el {formatDate(post.date)}</p>
-          <article className="pb-32 main-article">
-            <div dangerouslySetInnerHTML={{__html: post.content}}>
-            </div>
+          <article
+            className="pb-32 main-article"
+            dangerouslySetInnerHTML={{__html: post.content}}>
           </article>
           <script src="https://unpkg.com/prismjs@1.25.0/components/prism-core.min.js"></script>
           <script src="https://unpkg.com/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js"></script>
