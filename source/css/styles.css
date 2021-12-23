@@ -1,5 +1,15 @@
+.article-body * {
+    @apply text-lg;
+}
+
+.article-body h1,
+.article-body h2,
+.article-body h3 {
+    @apply text-primary font-bold mt-7 mb-2;
+}
+
 .article-body h1 {
-    @apply text-primary text-4xl;
+    @apply text-4xl;
 }
 
 .article-body h2 {
@@ -11,7 +21,7 @@
 }
 
 .article-body p {
-    @apply mb-3;
+    @apply mb-4 leading-6;
 }
 
 .article-body a {
@@ -23,12 +33,21 @@
     @apply bg-gray-50 text-sm px-1;
 }
 
-.article-body ul {
+.remark-highlight {
+    @apply mb-4;
+}
+
+.article-body ul,
+.article-body ol {
     @apply mb-5;
 }
 
-.article-body > li {
+.article-body ul li {
     @apply ml-6 list-disc;
+}
+
+.article-body ol li {
+    @apply ml-6 list-decimal;
 }
 
 .article-body > p:first-child {
@@ -36,8 +55,6 @@
 }
 
 .article-body > blockquote {
-    @apply bg-black bg-opacity-5;
-    border-left: 0.25rem solid #F54337;
-    margin: 1rem 0 1.35rem;
-    padding: 0.65rem 0.25rem 0.15rem 1.5rem;
+    @apply bg-blue-600 bg-opacity-10 mt-6 mb-5 mx-0 pt-5 pb-1 pr-4 pl-6 text-gray-800;
+    @apply border-l-4 border-blue-700;
 }

@@ -40,8 +40,8 @@ export default function Post({ post, preview }) {
         <p>Loading…</p>
       ) : (
         <div>
-          <h1 className="text-2xl text-center">{post.title}</h1>
-          <p className="text-center mb-8 italic">Publicado el {formatDate(post.date)}</p>
+          <h1 className="text-3xl font-bold text-primary text-center">{post.title}</h1>
+          <p className="text-center mb-8 italic text-gray-400">Publicado el {formatDate(post.date)}</p>
           <article
             className="pb-32 article-body"
             dangerouslySetInnerHTML={{__html: post.content}}>
