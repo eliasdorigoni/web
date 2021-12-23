@@ -76,4 +76,6 @@ Para copiar un directorio recursivamente agregar los modificadores `-rp` (r para
 scp -rp -P 12345 linuxuser@4.tcp.ngrok.io:~/downloads/fonts /var/www/public/fonts
 ```
 
+## Cierre
+
 Seguramente existan soluciones más simples, pero mientras funcione sin instalar nada extra en ambientes remotos
