@@ -1,3 +1,47 @@
 .main-article p {
     margin-bottom: 0.75rem;
 }
+
+.main-article h1 {
+    font-size: 2rem;
+}
+
+.main-article h2 {
+    font-size: 1.7rem;
+}
+
+.main-article h3 {
+    font-size: 1.5rem;
+}
+
+.main-article a {
+    color: #2563EB;
+}
+
+.main-article > code,
+.main-article > p > code {
+    background: #d0d0d0;
+    font-size: 0.9em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.main-article ul {
+    margin-bottom: 1.2rem;
+}
+
+.main-article ul > li {
+    list-style: disc;
+    margin-left: 1.4em;
+}
+
+.main-article > p:first-child {
+    text-indent: 1em;
+}
+
+.main-article > blockquote {
+    background: rgba(0, 0, 0, 0.05);
+    border-left: 0.25rem solid #F54337;
+    margin: 1rem 0 1.35rem;
+    padding: 0.65rem 0.25rem 0.15rem 1.5rem;
+}
