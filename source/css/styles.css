@@ -1,46 +1,42 @@
-.main-article p {
-    margin-bottom: 0.75rem;
+.article-body h1 {
+    @apply text-primary text-4xl;
 }
 
-.main-article h1 {
-    font-size: 2rem;
+.article-body h2 {
+    @apply text-3xl;
 }
 
-.main-article h2 {
-    font-size: 1.7rem;
+.article-body h3 {
+    @apply text-2xl;
 }
 
-.main-article h3 {
-    font-size: 1.5rem;
+.article-body p {
+    @apply mb-3;
 }
 
-.main-article a {
-    color: #2563EB;
+.article-body a {
+    @apply text-blue-600;
 }
 
-.main-article > code,
-.main-article > p > code {
-    background: #d0d0d0;
-    font-size: 0.9em;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+.article-body > code,
+.article-body > p > code {
+    @apply bg-gray-50 text-sm px-1;
 }
 
-.main-article ul {
-    margin-bottom: 1.2rem;
+.article-body ul {
+    @apply mb-5;
 }
 
-.main-article ul > li {
-    list-style: disc;
-    margin-left: 1.4em;
+.article-body > li {
+    @apply ml-6 list-disc;
 }
 
-.main-article > p:first-child {
+.article-body > p:first-child {
     text-indent: 1em;
 }
 
-.main-article > blockquote {
-    background: rgba(0, 0, 0, 0.05);
+.article-body > blockquote {
+    @apply bg-black bg-opacity-5;
     border-left: 0.25rem solid #F54337;
     margin: 1rem 0 1.35rem;
     padding: 0.65rem 0.25rem 0.15rem 1.5rem;

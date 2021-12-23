@@ -34,8 +34,6 @@ export default function Post({ post, preview }) {
         </title>
         <link key="font" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
         <link key="prism" type="text/css" href="https://unpkg.com/prismjs@1.25.0/themes/prism.css" rel="stylesheet" />
-        {/* <link key="prism" type="text/css" href="https://unpkg.com/prismjs@1.25.0/themes/prism-okaidia.css" rel="stylesheet" /> */}
-
       </Head>
 
       {router.isFallback ? (
@@ -45,7 +43,7 @@ export default function Post({ post, preview }) {
           <h1 className="text-2xl text-center">{post.title}</h1>
           <p className="text-center mb-8 italic">Publicado el {formatDate(post.date)}</p>
           <article
-            className="pb-32 main-article"
+            className="pb-32 article-body"
             dangerouslySetInnerHTML={{__html: post.content}}>
           </article>
           <script src="https://unpkg.com/prismjs@1.25.0/components/prism-core.min.js"></script>
