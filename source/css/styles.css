@@ -1,35 +1,35 @@
-.article-body * {
-    @apply text-lg;
+.content * {
+    @apply text-lg text-gray-900;
 }
 
-.article-body h1,
-.article-body h2,
-.article-body h3 {
+.content h1,
+.content h2,
+.content h3 {
     @apply text-primary font-bold mt-7 mb-2;
 }
 
-.article-body h1 {
+.content h1 {
     @apply text-4xl;
 }
 
-.article-body h2 {
+.content h2 {
     @apply text-3xl;
 }
 
-.article-body h3 {
+.content h3 {
     @apply text-2xl;
 }
 
-.article-body p {
+.content p {
     @apply mb-4 leading-6;
 }
 
-.article-body a {
+.content a {
     @apply text-blue-600;
 }
 
-.article-body > code,
-.article-body > p > code {
+.content > code,
+.content > p > code {
     @apply bg-gray-50 text-sm px-1;
 }
 
@@ -37,24 +37,24 @@
     @apply mb-4;
 }
 
-.article-body ul,
-.article-body ol {
+.content ul,
+.content ol {
     @apply mb-5;
 }
 
-.article-body ul li {
+.content ul li {
     @apply ml-6 list-disc;
 }
 
-.article-body ol li {
+.content ol li {
     @apply ml-6 list-decimal;
 }
 
-.article-body > p:first-child {
+.content > p:first-child {
     text-indent: 1em;
 }
 
-.article-body > blockquote {
+.content > blockquote {
     @apply bg-blue-600 bg-opacity-10 mt-6 mb-5 mx-0 pt-5 pb-1 pr-4 pl-6 text-gray-800;
     @apply border-l-4 border-blue-700;
 }
