@@ -2,7 +2,7 @@
 title: "Proyecto Pacman"
 date: "2019-06-24T21:59:53-03:00"
 description: Intentando nuevas cosas
-categorias: ["Pacman"]
+categories: ["Pacman"]
 ---
 
 El mundo no necesita más _to-do_ apps. Para aprender nuevas tecnologías hay que tener un proyecto interesante y completamente inútil.

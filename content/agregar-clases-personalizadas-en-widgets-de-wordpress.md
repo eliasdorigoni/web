@@ -1,7 +1,7 @@
 ---
 title: "Agregar clases personalizadas a widgets en WordPress"
 date: "2018-01-23T14:55:36-03:00"
-categorias: ["WordPress"]
+categories: ["WordPress"]
 draft: true
 ---
 

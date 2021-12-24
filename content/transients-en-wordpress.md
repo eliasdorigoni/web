@@ -1,7 +1,7 @@
 ---
 title: "Transients en WordPress"
 date: "2018-10-29T20:00:00-03:00"
-categorias: ["WordPress", "Transients API"]
+categories: ["WordPress", "Transients API"]
 ---
 
 El **API de transients** de WordPress es un conjunto de funciones que permiten guardar cualquier tipo de información en la base de datos de una forma similar al API de opciones, pero *de manera temporal*, es decir que la información se elimina pasado cierto tiempo. Esto es útil cuando trabajamos con servicios externos y guardamos la respuesta en caché para reducir la latencia de utilizar tales servicios.

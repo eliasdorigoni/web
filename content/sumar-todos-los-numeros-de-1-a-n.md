@@ -1,7 +1,7 @@
 ---
 title: "Sumar todos los numeros de 1 a N"
 date: "2019-10-29T23:30:00-03:00"
-categorias: ["Algoritmos", "PHP"]
+categories: ["Algoritmos", "PHP"]
 ---
 
 Recientemente hice una prueba en HackerRank y me dí cuenta que no tengo idea de algoritmos.

@@ -1,7 +1,6 @@
 ---
 title: "Unit testing de plugins de WordPress, desde cero (XAMPP + Windows 10)"
 date: "2017-10-20T10:00:00-03:00"
-tableOfContents: 1
 draft: true
 ---
 

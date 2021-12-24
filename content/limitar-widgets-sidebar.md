@@ -2,7 +2,7 @@
 title: "Limitar y aleatorizar widgets de un sidebar"
 date: "2018-08-07T17:00:00-03:00"
 lastmod: "2018-08-10T15:00:00-03:00"
-categorias: ["WordPress"]
+categories: ["WordPress"]
 draft: true
 ---
 

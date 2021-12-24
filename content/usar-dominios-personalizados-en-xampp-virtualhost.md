@@ -1,7 +1,7 @@
 ---
 title: "Cómo usar dominios personalizados en XAMPP"
 date: "2018-11-12T09:00:00-03:00"
-categorias: ["XAMPP"]
+categories: ["XAMPP"]
 ---
 
 ¿Ya te cansaste de escribir <strong class="resaltado">http://localhost/wordpress/mi-proyecto/</strong>? ¿o de tener que poner `home_url()` antes de todas las rutas? Hay una forma mejor.

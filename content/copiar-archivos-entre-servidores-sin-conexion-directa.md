@@ -2,6 +2,7 @@
 title: "Copiar archivos entre servidores sin conexión directa"
 date: "2021-12-22T15:01:00-03:00"
 description: "Tirando cables donde no hay"
+categories: ["SSH", "Linux"]
 ---
 
 Por cuestiones de la vida tenía la tarea de conectarme a un servidor, subir unos nuevos certificados SSL y ponerlos a andar. Pero cuando te conectas a través de un <a href="https://es.wikipedia.org/wiki/Bastion_host" rel="noopener" target="_blank">servidor bastión</a> o similar, probablemente no tengas las credenciales de ese servidor, lo que dificulta copiar archivos con el comando <a href="https://man7.org/linux/man-pages/man1/scp.1.html" rel="noopener" target="_blank">scp</a>.
