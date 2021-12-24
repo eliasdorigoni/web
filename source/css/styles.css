@@ -1,4 +1,4 @@
-.content * {
+.content {
     @apply text-lg text-gray-900;
 }
 
@@ -21,7 +21,8 @@
 }
 
 .content p {
-    @apply mb-4 leading-6;
+    @apply mb-4 leading-7;
+    text-indent: 0.75em;
 }
 
 .content a {
@@ -34,7 +35,7 @@
 }
 
 .remark-highlight {
-    @apply mb-4;
+    @apply mb-4 text-sm;
 }
 
 .content ul,
@@ -48,10 +49,6 @@
 
 .content ol li {
     @apply ml-6 list-decimal;
-}
-
-.content > p:first-child {
-    text-indent: 1em;
 }
 
 .content > blockquote {
