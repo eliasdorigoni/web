@@ -18,6 +18,8 @@ export async function getStaticProps() {
     'slug',
     'date',
     'description',
+    'isDraft',
+    'categories',
   ])
 
   return {

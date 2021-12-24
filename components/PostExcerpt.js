@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import slugify from 'slugify'
 
 function formatDate(isoDate) {
   let months = [
@@ -18,16 +19,29 @@ function formatDate(isoDate) {
 
 export default function PostExcerpt({post}) {
   return (
-    <article className="pb-6" key={post.slug}>
+    <article className="pb-6 mb-4" key={post.slug}>
+      <p className="text-gray-400 text-sm italic">
+        <time>{formatDate(post.date)}</time>
+      </p>
+
       <h2>
         <Link href={"/posts/" + post.slug}>
-          <a title={post.title} className="text-2xl font-semibold text-primary hover:text-black">
+          <a title={post.title} className="text-2xl font-semibold text-primary hover:text-black inline-block">
+            {post.isDraft ? <span className="bg-black text-white text-sm px-1 rounded relative bottom-1 mr-1">Draft</span> : ''}
             {post.title}
           </a>
         </Link>
       </h2>
-      <p className="text-gray-500 text-sm"><time>{formatDate(post.date)}</time></p>
-      <p>{post.description}</p>
+
+      <p class="text-gray-700">{post.description}</p>
+
+      <div className="text-sm">
+        {post.categories.map(category =>
+          <Link href={"/categories/" + slugify(category, {lower:true})}>
+            <a className="bg-primary text-white rounded px-1 inline-block mr-1">{category}</a>
+          </Link>
+        )}
+      </div>
     </article>
   )
 }
