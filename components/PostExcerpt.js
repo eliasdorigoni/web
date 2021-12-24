@@ -35,7 +35,7 @@ export default function PostExcerpt({post}) {
 
       <p class="text-gray-700">{post.description}</p>
 
-      <div className="text-sm">
+      <div className="text-sm mt-1">
         {post.categories.map(category =>
           <Link href={"/categories/" + slugify(category, {lower:true})}>
             <a className="bg-primary text-white rounded px-1 inline-block mr-1">{category}</a>
