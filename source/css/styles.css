@@ -55,3 +55,15 @@
     @apply bg-blue-600 bg-opacity-10 mt-6 mb-5 mx-0 pt-5 pb-1 pr-4 pl-6 text-gray-800;
     @apply border-l-4 border-blue-700;
 }
+
+.content table {
+    margin-bottom: 2em;
+}
+
+.content table td,
+.content table th {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    padding: 0.3rem 0.4rem;
+    line-height: 1.18em;
+}
