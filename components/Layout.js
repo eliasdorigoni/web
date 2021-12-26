@@ -8,11 +8,22 @@ export default function Layout({ children }) {
       <Head>
         <title>Elías Dorigoni - Desarrollador web</title>
         <link key="font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" />
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="theme-color" content="#D1382E" />
         <meta name="HandheldFriendly" content="True" />
         <meta name="robots" content="index, follow" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39351861-1"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'UA-39351861-1', { page_path: window.location.pathname });
+            `,
+          }}
+        />
       </Head>
       <div className="bg-gray-200 min-h-screen font-sans">
         <header className="bg-primary text-white text-center pt-2 mb-4">
