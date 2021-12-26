@@ -8,6 +8,11 @@ export default function Layout({ children }) {
       <Head>
         <title>Elías Dorigoni - Desarrollador web</title>
         <link key="font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#D1382E" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="robots" content="index, follow" />
       </Head>
       <div className="bg-gray-200 min-h-screen font-sans">
         <header className="bg-primary text-white text-center pt-2 mb-4">
