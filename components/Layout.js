@@ -1,8 +1,13 @@
 import Link from "next/link"
 import Head from 'next/head'
 import NextScript from 'next/script'
+import { useRouter } from "next/router"
 
 export default function Layout({ children }) {
+  const router = useRouter()
+  const pageClasses = "flex-initial text-white text-opacity-70 px-2 py-1 hover:text-opacity-100"
+  const activePageClasses = "flex-initial text-white text-opacity-100 px-2 py-1 font-bold"
+
   return (
     <>
       <Head>
@@ -35,13 +40,13 @@ export default function Layout({ children }) {
           </h1>
           <nav className="flex justify-center text-lg pb-2">
             <Link href="/">
-              <a className="flex-initial px-2 py-1 hover:underline">Artículos</a>
+              <a className={router.pathname == '/' || router.pathname.startsWith('/posts/') ? activePageClasses : pageClasses}>Artículos</a>
             </Link>
-            <Link href="/portfolio/">
-              <a className="flex-initial px-2 py-1 hover:underline">Portfolio</a>
+            <Link href="/portfolio">
+              <a className={router.pathname == '/portfolio' ? activePageClasses : pageClasses}>Portfolio</a>
             </Link>
-            <Link href="/sobre-mi/">
-              <a className="flex-initial px-2 py-1 hover:underline">Sobre mí</a>
+            <Link href="/sobre-mi">
+              <a className={router.pathname == '/sobre-mi' ? activePageClasses : pageClasses}>Sobre mí</a>
             </Link>
           </nav>
         </header>
