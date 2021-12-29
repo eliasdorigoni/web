@@ -1,7 +1,9 @@
-HUGO_ENV = "production"
+[build]
+command = "next build"
+publish = ".next"
 
-[context.production.environment]
-  HUGO_VERSION = "0.58.3"
+[[plugins]]
+package = "@netlify/plugin-nextjs"
 
-[context.deploy-preview.environment]
-  HUGO_VERSION = "0.58.3"
+[[plugins]]
+package = "netlify-plugin-cache-nextjs"
