@@ -21,7 +21,7 @@ function formatDate(isoDate) {
   return `${day} de ${month}, ${year} - ${hour}:${minute}`
 }
 
-export default function Post({ post, preview }) {
+export default function Post({ post }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />

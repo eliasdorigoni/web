@@ -46,13 +46,13 @@ export default function Layout({ children }) {
           </nav>
         </header>
 
-        <div className="container mx-auto px-2">
+        <div className="container mx-auto px-2 mb-12">
           <main className="max-w-prose mx-auto" role="main">
             {children}
           </main>
         </div>
 
-        <footer className="container mx-auto text-gray-700 text-center text-sm pb-6">
+        <footer className="bg-gray-300 pb-8 pt-4 px-4 text-gray-700 text-center text-sm">
           <p>Desarrollado en <a className="font-bold" href="https://nextjs.org/" target="_blank" rel="noopener">next.js</a>.</p>
           <p>Hosteado en <a className="font-bold" href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>.</p>
         </footer>

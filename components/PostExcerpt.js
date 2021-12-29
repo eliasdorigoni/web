@@ -26,19 +26,21 @@ export default function PostExcerpt({post}) {
 
       <h2>
         <Link href={"/posts/" + post.slug}>
-          <a title={post.title} className="text-2xl font-semibold text-primary hover:text-black inline-block">
+          <a title={post.title} className="text-2xl font-semibold text-primary hover:text-primary-darker inline-block">
             {post.isDraft ? <span className="bg-black text-white text-sm px-1 rounded relative bottom-1 mr-1">Draft</span> : ''}
             {post.title}
           </a>
         </Link>
       </h2>
 
-      <p class="text-gray-700">{post.description}</p>
+      <p className="text-gray-700">{post.description}</p>
 
       <div className="text-sm mt-1">
         {post.categories.map(category =>
-          <Link href={"/categories/" + slugify(category, {lower:true})}>
-            <a className="bg-primary text-white rounded px-1 inline-block mr-1">{category}</a>
+          <Link key={category} href={"/categories/" + slugify(category, {lower:true})}>
+            <a className="bg-primary hover:bg-primary-darker text-white rounded px-1 inline-block mr-1">
+              {category}
+            </a>
           </Link>
         )}
       </div>
