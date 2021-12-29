@@ -1,7 +1,7 @@
 ---
 title: "Copiar archivos entre servidores sin conexión directa"
 date: "2021-12-22T15:01:00-03:00"
-description: "Tirando cables donde no hay"
+description: "Tirando cables donde no hay."
 categories: ["SSH", "Linux"]
 ---
 
