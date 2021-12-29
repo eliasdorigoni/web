@@ -1,8 +1,14 @@
 import Layout from "~/components/Layout";
+import Head from 'next/head'
 
 export default function SobreMi() {
   return (
     <Layout>
+      <Head>
+        <title key="title">
+          Sobre mí | Elías Dorigoni - Desarrollador web
+        </title>
+      </Head>
       <div class="content">
         <h2>Hola!</h2>
 
