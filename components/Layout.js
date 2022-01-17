@@ -58,8 +58,8 @@ export default function Layout({ children }) {
         </div>
 
         <footer className="bg-gray-300 pb-8 pt-4 px-4 text-gray-700 text-center text-sm">
-          <p>Desarrollado en <a className="font-bold" href="https://nextjs.org/" target="_blank" rel="noopener">next.js</a>.</p>
-          <p>Hosteado en <a className="font-bold" href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>.</p>
+          <p>Todo el contenido de este sitio es de carácter estrictamente personal y no reflejan las opiniones de mi empleador.</p>
+          <p>Desarrollado en <a className="font-bold" href="https://nextjs.org/" target="_blank" rel="noopener">next.js</a> y hosteado en <a className="font-bold" href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>.</p>
         </footer>
       </div>
       <NextScript />
