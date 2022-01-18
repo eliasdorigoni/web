@@ -16,4 +16,10 @@ npm install
 - `npm run dev` inicia el servidor para desarrollo, y buildea los assets a demanda.
 
 # Nuevos artículos
-Agregarlos a la carpeta **content** en formato Markdown. El nombre del archivo es el slug del post.
+
+Agregarlos a la carpeta **content** en formato Markdown.
+
+- El slug del post es el nombre del archivo.
+- Mantener la longitud de lineas en 80 caracteres.
+- En bloques de código sin sintaxis específica, usar "markup" (para que los signos
+se codifiquen correctamente).
