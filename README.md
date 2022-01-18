@@ -23,3 +23,11 @@ Agregarlos a la carpeta **content** en formato Markdown.
 - Mantener la longitud de lineas en 80 caracteres.
 - En bloques de código sin sintaxis específica, usar "markup" (para que los signos
 se codifiquen correctamente).
+
+
+# Definir GIT author
+
+```
+git config user.email eliasdorigoni@gmail.com
+git config user.name "Elias Dorigoni"
+```
