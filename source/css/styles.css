@@ -22,20 +22,19 @@
 
 .content p {
     @apply mb-4 leading-7;
+}
+
+.content > p:first-child {
     text-indent: 0.75em;
 }
 
 .content a {
-    @apply text-blue-600;
+    @apply text-blue-500 underline hover:no-underline;
 }
 
 .content > code,
 .content > p > code {
     @apply bg-gray-50 text-sm px-1;
-}
-
-.remark-highlight {
-    @apply mb-4 text-sm;
 }
 
 .content ul,
@@ -82,4 +81,23 @@
 
 .portfolio-item p a:hover {
     @apply text-blue-800 underline;
+}
+
+/* Prism */
+
+.remark-highlight {
+    @apply mb-4 text-sm rounded-md border-2 border-gray-300 bg-white bg-opacity-50;
+}
+
+pre[class*="language-"] {
+    @apply m-0 bg-transparent p-3;
+}
+
+.token.operator {
+    @apply bg-transparent;
+}
+
+
+code[class*="language-"] {
+    text-shadow: none;
 }
