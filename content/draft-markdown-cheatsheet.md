@@ -1,8 +1,8 @@
 ---
-title: "Markdown test"
+title: "Markdown cheatsheet"
 date: "3000-01-01T00:00:00-03:00"
 draft: true
-categories: ["test"]
+categories: ["uno", "dos", "tres", "test"]
 ---
 
 # Markdown: Syntax

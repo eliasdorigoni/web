@@ -32,7 +32,7 @@ Por último hay que iniciar el túnel:
 ```
 
 La pantalla se va a limpiar y va a mostrar esto:
-```plain
+```markup
 Session Status        online
 Account               Elías Dorigoni (Plan: Free)
 Version               2.3.40
