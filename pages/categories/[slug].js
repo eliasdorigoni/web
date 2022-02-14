@@ -5,6 +5,7 @@ import Layout from '~/components/Layout'
 import PostExcerpt from '~/components/PostExcerpt'
 import { getAllPosts } from '~/lib/api'
 import slugify from 'slugify'
+import LinkExcerpt from '~/components/LinkExcerpt'
 
 export default function Category({ posts, name }) {
   const router = useRouter()
@@ -24,7 +25,10 @@ export default function Category({ posts, name }) {
         Estás viendo todos los artículos en la categoría <strong>{name}</strong>.
       </h2>
       { posts && posts.map(post => (
-        <PostExcerpt post={post} key={post.slug} />
+        <>
+          { post.kind === 'link' && <LinkExcerpt post={post} key={post.slug} /> }
+          { post.kind === 'post' && <PostExcerpt post={post} key={post.slug} /> }
+        </>
       )) }
     </Layout>
   )
@@ -37,6 +41,8 @@ export async function getStaticProps({ params }) {
     'date',
     'description',
     'categories',
+    'kind',
+    'link',
   ])
 
   let originalName = ''
