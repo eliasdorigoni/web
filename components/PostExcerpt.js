@@ -21,7 +21,7 @@ export default function PostExcerpt({post}) {
   return (
     <article className="pb-6 mb-4" key={post.slug}>
       <p className="text-gray-400 text-sm italic">
-        <time>{formatDate(post.date)}</time>
+        Artículo &ndash; <time>{formatDate(post.date)}</time>
       </p>
 
       <h2>

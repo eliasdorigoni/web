@@ -21,13 +21,12 @@ export default function LinkExcerpt({post}) {
   return (
     <article className="pb-6 mb-4" key={post.slug}>
       <p className="text-gray-400 text-sm italic">
-        <time>{formatDate(post.date)}</time>
+        Link &ndash; <time>{formatDate(post.date)}</time>
       </p>
 
       <h2>
         <a href={post.link} target="_blank" rel="noopener" title={post.title} className="text-2xl font-semibold text-primary hover:text-primary-darker inline-block">
           {post.isDraft ? <span className="bg-black text-white text-sm px-1 rounded relative bottom-1 mr-1">Draft</span> : ''}
-          <span className="bg-green-600 text-white text-sm px-1 rounded relative bottom-1 mr-1">Link</span>
           {post.title}
         </a>
       </h2>
