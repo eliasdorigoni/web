@@ -6,12 +6,18 @@ import { getAllPosts } from '~/lib/api'
 export default function Home({posts}) {
   return (
     <Layout>
-      { posts && posts.map(post => (
-        <>
-          { post.kind === 'link' && <LinkExcerpt post={post} key={post.slug} /> }
-          { post.kind === 'post' && <PostExcerpt post={post} key={post.slug} /> }
-        </>
-      ))}
+      { posts && posts.map(post => {
+        if (post.kind === 'link') {
+          return (
+            <LinkExcerpt post={post} key={post.slug} />
+          )
+        } else {
+          return (
+            <PostExcerpt post={post} key={post.slug} />
+          )
+        }
+      }
+      )}
     </Layout>
   )
 }
