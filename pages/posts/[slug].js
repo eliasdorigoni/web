@@ -32,8 +32,6 @@ export default function Post({ post }) {
         <title key="title">
           {post.title} | Elías Dorigoni - Desarrollador web
         </title>
-        <link key="font" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,600|Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
-        <link key="prism" type="text/css" href="https://unpkg.com/prismjs@1.25.0/themes/prism.css" rel="stylesheet" />
       </Head>
 
       {router.isFallback ? (
@@ -46,11 +44,8 @@ export default function Post({ post }) {
             className="pb-8 content"
             dangerouslySetInnerHTML={{__html: post.content}}>
           </article>
-          <script src="https://unpkg.com/prismjs@1.25.0/components/prism-core.min.js"></script>
-          <script src="https://unpkg.com/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js"></script>
         </div>
       )}
-
     </Layout>
   )
 }
