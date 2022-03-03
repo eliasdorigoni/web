@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import Layout from '~/components/Layout'
+import Comments from '~/components/Comments'
 import { getPostBySlug, getAllPosts } from '~/lib/api'
 import markdownToHtml from '~/lib/markdownToHtml'
 
@@ -44,6 +45,7 @@ export default function Post({ post }) {
             className="pb-8 content"
             dangerouslySetInnerHTML={{__html: post.content}}>
           </article>
+          <Comments url={router.asPath} identifier={post.slug}></Comments>
         </div>
       )}
     </Layout>
