@@ -21,7 +21,7 @@
     "@netlify/plugin-nextjs": "^4.2.7",
     "autoprefixer": "^10.2.6",
     "netlify-plugin-cache-nextjs": "^1.6.1",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.8",
     "remark-cli": "^10.0.1",
     "remark-frontmatter": "^4.0.1",
     "remark-preset-lint-consistent": "^5.1.1",
