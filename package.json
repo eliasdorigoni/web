@@ -18,7 +18,7 @@
     "slugify": "^1.6.4"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.2.7",
+    "@netlify/plugin-nextjs": "^4.2.8",
     "autoprefixer": "^10.4.4",
     "netlify-plugin-cache-nextjs": "^1.6.1",
     "postcss": "^8.4.12",
