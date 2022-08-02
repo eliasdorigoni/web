@@ -20,7 +20,6 @@
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.14.0",
     "autoprefixer": "^10.4.8",
-    "netlify-plugin-cache-nextjs": "^1.6.1",
     "postcss": "^8.4.14",
     "remark-cli": "^11.0.0",
     "remark-frontmatter": "^4.0.1",
