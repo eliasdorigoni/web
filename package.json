@@ -18,7 +18,7 @@
     "slugify": "^1.6.6"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.39.4",
+    "@netlify/plugin-nextjs": "^4.40.0",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.27",
     "remark-cli": "^11.0.0",
